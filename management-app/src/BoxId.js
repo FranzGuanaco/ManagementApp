@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./App.css";
 
 const BoxId = (props) => {
@@ -14,6 +15,7 @@ const BoxId = (props) => {
   <label htmlFor="password">{props.title2}</label>
   <input type="password" id="password" name="password" />
   <input type="submit" value="Se connecter"/>
+  <Link to="/Homepage">Rechercher</Link>
   </form>
 );
 }
