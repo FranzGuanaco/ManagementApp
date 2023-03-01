@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BoxId from './BoxId';
-import Homepage from './Homepage/Homepage';
+import Homepage from './Homepage';
 import {Routes, Route} from 'react-router-dom'
 
 function App() {
