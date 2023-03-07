@@ -114,12 +114,18 @@ input[type="submit"] {
 }
 
 .boxNews {
-  border: 1px solid black;
-  justify-content: center;
-  height: 100vh;
+  border: 1px solid #adabab;
   border-radius: 20px;
-  width: 800px;
-  height: 300px;
+  width: 80px;
+  height: 30px;
+  transition: all 0.5s ease-out;
+}
+
+@media (min-width: 800px) {
+  .boxNews {
+    width: calc(80px + 38.5vw);
+    height: calc(30px + 15.5vw);
+  }
 }
 
 .center {
@@ -127,4 +133,18 @@ input[type="submit"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+}
+.circle-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid #adabab;
+  overflow: hidden;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

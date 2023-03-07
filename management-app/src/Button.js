@@ -9,7 +9,7 @@ import PropTypes  from 'react';
     className="button"
     onClick={props.onClick}>
         {props.texte}
-
+    
     </button>
   );
 }
