@@ -90,6 +90,7 @@ input[type="submit"] {
   border: none;
   border-radius: 20px;
   max-width: 300px;
+  min-width: 200px;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -97,7 +98,7 @@ input[type="submit"] {
   display: inline-block;
   font-size: 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 35%;
+  width: 65%;
   height: 50px;
 }
 
@@ -107,23 +108,25 @@ input[type="submit"] {
   justify-content: center;
   align-items: flex-start;
   text-align: left;
+  margin-left: 50px;
 }
 
 .align button {
   margin: 20px;
 }
 
-.boxNews {
+.box {
   border: 1px solid #adabab;
   border-radius: 20px;
-  width: 80px;
-  height: 30px;
+  width: 300px;
+  height: 150px;
   transition: all 0.5s ease-out;
+  margin-bottom: 30px;
 }
 
-@media (min-width: 800px) {
-  .boxNews {
-    width: calc(80px + 38.5vw);
+@media (min-width: 350px) {
+  .box {
+    width: calc(80px + 45.5vw);
     height: calc(30px + 15.5vw);
   }
 }
@@ -136,11 +139,17 @@ input[type="submit"] {
 
 }
 .circle-image {
-  width: 140px;
-  height: 140px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 1px solid #adabab;
   overflow: hidden;
+}
+@media (min-width: 350px) {
+  .circle-image {
+    width: calc(30px + 8.5vw);
+    height: calc(30px + 8.5vw);
+  }
 }
 
 .circle-image img {

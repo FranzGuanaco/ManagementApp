@@ -7,7 +7,7 @@ function BoxNews(props) {
   
 
     return (
-        <div className="boxNews"
+        <div className="box"
         style={{
             position: "relative",
             bottom: props.top,
@@ -15,8 +15,8 @@ function BoxNews(props) {
             justifyContent: "center",
           }}>
             <Pic
-            margin= "150px"
-            left = "20px"
+              margin = "30%"
+              left = "2%"
             />
             
         </div>
