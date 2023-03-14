@@ -6,12 +6,11 @@ const Pic = (props) => {
 
   <div class="circle-image"
   
-    style= {{
-    bottom: props.margin,
-    marginLeft: props.left,
-    position: "absolute"
+  style= {{
+ 
+  position: "absolute"
 
-  }}>
+}}>
 
   <img src="photo.jpg" alt="Photo" />
 </div>

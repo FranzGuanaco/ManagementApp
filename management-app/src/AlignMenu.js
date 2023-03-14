@@ -18,7 +18,7 @@ function AlignMenu(props) {
   return (
     <>
     <span
-        style={{ fontSize: '30px', cursor: 'pointer', display: 'block', margin: '10px', width: '10%' }}
+        style={{ fontSize: '30px', cursor: 'pointer', display: 'block', margin: '30px', marginTop: '50px', width: '10%' }}
         onClick={openNav}
         
       >
@@ -37,7 +37,7 @@ function AlignMenu(props) {
         <Button texte ={props.buttonText4} link ={props.links4}/>
         <Button texte ={props.buttonText5} link ={props.links5}/>
         <Button texte ={props.buttonText6} link ={props.links6}/>
-        
+        <Button texte ={props.buttonText7} link ={props.links7}/>
         </div>
        
       </div>
@@ -55,7 +55,6 @@ const Button = (props) => {
     <button 
     className="button"
     style={{
-
       backgroundColor: props.color,
     }}
     onClick={props.onClick}>
@@ -67,13 +66,7 @@ const Button = (props) => {
   );
 }
 
-Button.defaultProps = {
-    texte: 'click',
-    link: '/Homepage'
 
-    
-    
-  }
 
 
 

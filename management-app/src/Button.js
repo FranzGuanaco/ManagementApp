@@ -7,7 +7,12 @@ import PropTypes  from 'react';
     
     <button 
     className="button"
+    style={{
+      backgroundColor: props.color,
+    }}
+
     onClick={props.onClick}>
+      
         {props.texte}
     
     </button>
@@ -16,6 +21,7 @@ import PropTypes  from 'react';
 
 Button.defaultProps = {
     texte: 'click',
+    
     
   }
 

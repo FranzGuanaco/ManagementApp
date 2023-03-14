@@ -9,9 +9,9 @@ const RandomBox = (props) => {
             style = {{ 
                 border: '1px solid #adabab',
                 borderRadius: props.radius,
-                width: '300px',
-                height: '150px',
-                marginBottom: '30px'
+                width: props.width,
+                height: props.size,
+                marginBottom: '14px'
             }}
                 >
             </div>
@@ -23,7 +23,7 @@ RandomBox.propTypes = {
 
     radius: '20px',
     width: '300px',
-    height: '150px'
+    size: '220px'
 
 };
 

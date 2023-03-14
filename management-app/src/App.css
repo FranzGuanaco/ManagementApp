@@ -112,7 +112,7 @@ input[type="submit"] {
 }
 
 .align button {
-  margin: 20px;
+  margin: 15px;
 }
 
 .box {
@@ -157,3 +157,17 @@ input[type="submit"] {
   height: 100%;
   object-fit: cover;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 400px;
+}
+
+.randombox-container {
+  display: flex;
+  align-items: center;
+ 
+}
+
+

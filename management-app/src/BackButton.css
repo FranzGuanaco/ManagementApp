@@ -1,0 +1,32 @@
+.back-button {
+    display: flex;
+    padding: 20px 40px;
+    background-color: #0077cc;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 400px;
+  }
+  
+  .back-button:hover {
+    background-color: #005fa3;
+  }
+  
+  .back-button i {
+    margin-right: 10px;
+  }
+  
+  .arrow {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    justify-content: center;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 20px solid white;
+    transform: rotate(0deg);
+    margin-right: 30px;
+  }
+  
