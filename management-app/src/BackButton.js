@@ -7,9 +7,9 @@ function BackButton() {
         return (
             <div>
                 <button class="back-button">
-  <span class="arrow"></span>
-  Back
-</button>
+                <span class="arrow"></span>
+                Back
+                </button>
 
             </div>
         );
