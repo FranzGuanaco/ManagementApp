@@ -162,6 +162,7 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   margin-left: 400px;
+  position: relative;
 }
 
 .randombox-container {
@@ -170,4 +171,11 @@ input[type="submit"] {
  
 }
 
+
+.pic{
+  z-index: 9;
+  margin-left: 45%;
+  top: 10%;
+  position: absolute;
+}
 
