@@ -17,7 +17,6 @@ function ViewAccount () {
 
         buttonText1 = "Home"
         links1 ="/Homepage"
-
         buttonText2 = "Edit"
         buttonText3 = "Staffing"
         buttonText4 = "Calendar"

@@ -5,6 +5,7 @@ import Homepage from './Homepage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Employee from './Employee';
 import ViewAccount from './ViewAccount';
+import EditAccount from './EditAccount';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/Homepage' exact element={<Homepage/>} />
         <Route path='/Employee' exact element={<Employee/>} />
         <Route path='/ViewAccount' exact element={<ViewAccount/>} />
+        <Route path='/EditAccount' exact element={<EditAccount/>} />
       </Routes>
       </BrowserRouter>
       </div>

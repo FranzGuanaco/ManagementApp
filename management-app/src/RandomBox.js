@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 
 const RandomBox = (props) => {
     
     return (
-            <div
+            <div className='Box'
             style = {{ 
                 border: '1px solid #adabab',
                 borderRadius: props.radius,
@@ -14,6 +14,7 @@ const RandomBox = (props) => {
                 marginBottom: '14px'
             }}
                 >
+                    test
             </div>
         );
     }
