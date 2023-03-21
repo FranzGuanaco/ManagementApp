@@ -165,9 +165,24 @@ input[type="submit"] {
   position: relative;
 }
 
+.container_track {
+  display: flex;
+  flex-direction: column;
+  margin-left: 400px;
+  margin-top: 5%;
+  position: relative;
+}
+
 .randombox-container {
   display: flex;
   align-items: center;
+ 
+}
+
+.randombox-pie {
+  display: flex;
+  align-items: center;
+  margin-left: 250px;
  
 }
 
@@ -177,5 +192,28 @@ input[type="submit"] {
   margin-left: 45%;
   top: 10%;
   position: absolute;
+}
+
+.circular-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.circular-button:hover {
+  background-color: #0069d9;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: #007bff;
 }
 

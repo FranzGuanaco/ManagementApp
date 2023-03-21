@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Employee from './Employee';
 import ViewAccount from './ViewAccount';
 import EditAccount from './EditAccount';
+import Track from './Track';
+import NewProject from './NewProject';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
         <Route path='/Employee' exact element={<Employee/>} />
         <Route path='/ViewAccount' exact element={<ViewAccount/>} />
         <Route path='/EditAccount' exact element={<EditAccount/>} />
+        <Route path='/Track' exact element={<Track/>} />
+        <Route path='/NewProject' exact element={<NewProject/>} />
       </Routes>
       </BrowserRouter>
       </div>
