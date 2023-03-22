@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import Pic from "./Pic";
+import "./BxNews.css";
+import Pic from "../Picture/Pic";
 
 function BoxNews(props) {
 

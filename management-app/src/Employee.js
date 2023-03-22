@@ -1,6 +1,6 @@
 import React from 'react'
-import AlignMenu from './AlignMenu'
-import BoxNews from './BoxNews'
+import AlignMenu from './Menu/AlignMenu'
+import BoxNews from './Box/BoxNews'
 import "./App.css"
 
 export default function Employee() {

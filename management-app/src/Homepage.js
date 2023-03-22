@@ -1,8 +1,7 @@
 import React from 'react'
 import "./App.css"
-import AlignMenu from './AlignMenu'
-import BoxNews from './BoxNews'
-import Pic from './Pic'
+import AlignMenu from './Menu/AlignMenu'
+import BoxNews from './Box/BoxNews'
 import { Link } from "react-router-dom";
 
 export default function Homepage() {

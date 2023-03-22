@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BoxId from './BoxId';
+import BoxId from './Box/BoxId';
 import Homepage from './Homepage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Employee from './Employee';

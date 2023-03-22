@@ -1,5 +1,5 @@
 import React from 'react'
-import AlignMenu from './AlignMenu';
+import AlignMenu from './Menu/AlignMenu';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";

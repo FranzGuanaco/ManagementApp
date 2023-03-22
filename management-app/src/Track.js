@@ -1,6 +1,6 @@
 import React from 'react';
 import RandomBox from './RandomBox';
-import AlignMenu from './AlignMenu';
+import AlignMenu from './Menu/AlignMenu';
 import Pie from './PieChart';
 import "./App.css";
 

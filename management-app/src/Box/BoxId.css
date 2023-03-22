@@ -1,0 +1,22 @@
+input[type="submit"] {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    height: 40px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  input[type="text"], input[type="password"] {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #C6C6C6;
+    height: 40px;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+  }

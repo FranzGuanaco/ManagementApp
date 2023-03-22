@@ -1,8 +1,8 @@
 import React from 'react';
 import RandomBox from './RandomBox';
-import AlignMenu from './AlignMenu';
-import BackButton from './BackButton';
-import Pic from './Pic';
+import AlignMenu from './Menu/AlignMenu';
+import BackButton from './Button/BackButton';
+import Pic from './Picture/Pic';
 import "./App.css";
 
 function ViewAccount () {

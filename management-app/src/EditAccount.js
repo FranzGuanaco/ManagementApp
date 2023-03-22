@@ -1,9 +1,9 @@
 import React from 'react';
 import RandomBox from './RandomBox';
-import AlignMenu from './AlignMenu';
-import BackButton from './BackButton';
-import Form from './Form';
-import Pic from './Pic';
+import AlignMenu from './Menu/AlignMenu';
+import BackButton from './Button/BackButton'
+import Form from './Form/Form';
+import Pic from './Picture/Pic';
 import "./App.css";
 
 function EditAccount () {
