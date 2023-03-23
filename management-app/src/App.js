@@ -8,6 +8,7 @@ import ViewAccount from './ViewAccount';
 import EditAccount from './EditAccount';
 import Track from './Track';
 import NewProject from './NewProject';
+import Mail from './Mail';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/EditAccount' exact element={<EditAccount/>} />
         <Route path='/Track' exact element={<Track/>} />
         <Route path='/NewProject' exact element={<NewProject/>} />
+        <Route path='/Mail' exact element={<Mail/>} />
       </Routes>
       </BrowserRouter>
       </div>

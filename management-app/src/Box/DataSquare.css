@@ -1,0 +1,10 @@
+.square {
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+    height: 200px; /* Ajustez la hauteur selon vos besoins */
+    background-color: #ccc; /* Couleur de fond du carré */
+    text-align: center; /* Pour centrer le texte horizontalement */
+    display: flex; /* Pour centrer le texte verticalement */
+    justify-content: center; /* Pour centrer le texte verticalement */
+    align-items: center; /* Pour centrer le texte verticalement */
+  }
+  
