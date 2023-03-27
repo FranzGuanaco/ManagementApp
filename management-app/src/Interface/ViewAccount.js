@@ -1,9 +1,9 @@
 import React from 'react';
-import RandomBox from './RandomBox';
-import AlignMenu from './Menu/AlignMenu';
-import BackButton from './Button/BackButton';
-import Pic from './Picture/Pic';
-import "./App.css";
+import RandomBox from '../RandomBox';
+import AlignMenu from '../Menu/AlignMenu';
+import BackButton from '../Button/BackButton';
+import Pic from '../Picture/Pic';
+import "../App.css";
 
 function ViewAccount () {
 
@@ -12,17 +12,28 @@ function ViewAccount () {
             <div className="home">
         <AlignMenu
         bottom= "44px"
-        buttonText = "Employees"
-        links ="/Employee"
 
-        buttonText1 = "Home"
-        links1 ="/Homepage"
-        buttonText2 = "Edit"
-        buttonText3 = "Staffing"
-        buttonText4 = "Calendar"
-        buttonText5 = "Employee"
-        buttonText6 = "Vacancy"
-        buttonText7 = "Mail"
+        buttonText = "Home"
+        links ="/Homepage"
+
+        buttonText1 = "Edit"
+        links1 ="/EditAccount"
+
+        buttonText2 = "Staffing"
+        links2 ="/"
+
+        buttonText3 = "Calendar"
+        links3 ="/"
+
+        buttonText4 = "Employee"
+        links4 ="/"
+
+        buttonText5 = "Vacancy"
+        links5 ="/"
+
+        buttonText6 = "Mail"
+        links6 ="/"
+
         
         />
         

@@ -1,10 +1,10 @@
 import React from 'react'
-import AlignMenu from './Menu/AlignMenu';
+import AlignMenu from '../Menu/AlignMenu';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Square from './Box/SquareData';
-import "./App.css";
+import Square from '../Box/SquareData';
+import "../App.css";
 
       
 const Menu = () => (

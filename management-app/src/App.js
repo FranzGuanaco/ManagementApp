@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BoxId from './Box/BoxId';
-import Homepage from './Homepage';
+import BoxId from './Interface/BoxId';
+import Homepage from './Interface/Homepage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Employee from './Employee';
-import ViewAccount from './ViewAccount';
-import EditAccount from './EditAccount';
-import Track from './Track';
-import NewProject from './NewProject';
-import Mail from './Mail';
+import Employee from './Interface/Employee';
+import ViewAccount from './Interface/ViewAccount';
+import EditAccount from './Interface/EditAccount';
+import Track from './Interface/Track';
+import NewProject from './Interface/NewProject';
+import Mail from './Interface/Mail';
 
 function App() {
 

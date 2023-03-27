@@ -1,8 +1,8 @@
 import React from 'react';
-import RandomBox from './RandomBox';
-import AlignMenu from './Menu/AlignMenu';
-import OptionBtn from './Button/OptionBtn';
-import "./App.css";
+import RandomBox from '../RandomBox';
+import AlignMenu from '../Menu/AlignMenu';
+import OptionBtn from '../Button/OptionBtn';
+import "../App.css";
 
 function Mail () {
 

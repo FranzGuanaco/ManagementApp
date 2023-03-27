@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import "./Button.css"
-import "./Menu.css"
+import "../Style/Button.css"
+import "../Style/Menu.css"
 
 
 function AlignMenu(props) {
@@ -37,7 +37,6 @@ function AlignMenu(props) {
         <Button texte ={props.buttonText4} link ={props.links4}/>
         <Button texte ={props.buttonText5} link ={props.links5}/>
         <Button texte ={props.buttonText6} link ={props.links6}/>
-        <Button texte ={props.buttonText7} link ={props.links7}/>
         </div>
        
       </div>
