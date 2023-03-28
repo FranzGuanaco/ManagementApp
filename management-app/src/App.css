@@ -116,6 +116,21 @@ input[type="submit"] {
   position: relative;
 }
 
+.menu-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1%;
+ 
+}
+
+.menu-left {
+  margin-left: 80%;
+}
+
+.menu-right {
+  margin-left: 5%;
+}
+
 .randombox-container {
   display: flex;
   align-items: center;

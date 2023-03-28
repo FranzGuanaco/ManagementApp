@@ -1,25 +1,49 @@
 import React from "react";
+import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import "../BoxId.css"
 
-const BoxId = (props) => {
+class BoxId extends React.Component {
+  constructor(props) {
+    super(props);
 
-  
+    this.state = {
+      userName: "",
+    };
+  }
+
+  handleInputChange = (event) => {
+    
+    const value = event.target.value;
+
+    this.setState({
+      userName: value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.userName);
+  }
+
+  render() {
+   
+    const { userName } = this.state.userName;
 
     return (
-
       <div className="Id">
-        
-    <form>
+        <form className="formBox" onSubmit={this.handleSubmit}>
+          <label htmlFor="username">{this.props.title} :</label>
+          <input type="text" id="username" name="userName" value={userName} placeholder="" onChange={this.handleInputChange} />
+          <label htmlFor="password">{this.props.title2}</label>
+          <input type="password" id="password" name="password" />
+          <input type="submit" value="Se connecter" />
+        </form>
 
-      <label htmlFor="username">{props.title} :</label>
-        <input type="text" id="username" name="username" placeholder="" />
-      <label htmlFor="password">{props.title2}</label>
-        <input type="password" id="password" name="password" />
-        <Link to="/Homepage">   <input type="submit" value="Se connecter"/> </Link>
-    </form>
-    </div>
-);
+        <p>{userName}</p>
+      </div>
+    );
+  }
 }
 
 BoxId.defaultProps = {
@@ -27,4 +51,5 @@ BoxId.defaultProps = {
   title2: 'Password',
 }
 
-export default BoxId
+export default BoxId;
+

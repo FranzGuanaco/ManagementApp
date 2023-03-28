@@ -4,7 +4,6 @@ import Pic from "../Picture/Pic";
 
 function BoxNews(props) {
 
-  
 
     return (
         <div className="box"
@@ -15,8 +14,8 @@ function BoxNews(props) {
             justifyContent: "center",
           }}>
             <Pic
-              margin = "30%"
-              left = "2%"
+              marginTop = "2%"
+              marginLeft = "4%"
             />
             
         </div>

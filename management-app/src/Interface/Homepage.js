@@ -1,48 +1,56 @@
 import React from 'react'
 import "../App.css"
-import AlignMenu from '../Menu/AlignMenu'
+import AlignMenuShorter from '../Menu/AlignMenuShorter';
 import BoxNews from '../Box/BoxNews'
 import { Link } from "react-router-dom";
+import ParamPic from './ParamPic';
 
 export default function Homepage() {
   return (
     
     <div className="home">
-        <AlignMenu
+    <div className="menu-container">
+      
+        <div className='menu-right'>
+        <AlignMenuShorter
         bottom= "40px"
-        buttonText = "Employees"
-        links ="/Employee"
+      
+        buttonText = "Project"
+        links = "/"
 
-        buttonText1 = "Project"
+        buttonText1 = "Staffing"
+        links1 = "/"
+
+        buttonText2 = "Calendar"
         links2 = "/"
 
-        buttonText2 = "Staffing"
+        buttonText3 = "Finance"
         links3 = "/"
 
-        buttonText3 = "Calendar"
+        buttonText4 = "Vacancy"
         links4 = "/"
 
-        buttonText4 = "Finance"
+        buttonText5 = "Mail"
         links5 = "/"
-
-        buttonText5 = "Vacancy"
-        links6 = "/"
-
-        buttonText6 = "Mail"
-        links7 = "/"
         />
+
+        </div>
+        <div className='menu-left'>
+          <ParamPic/>
+        </div>
+        </div>
+
         <div className="center">
-            <BoxNews 
-            top = "220px"/>
-        
+        <Link to>
+        <BoxNews top = "220px"/>
+        </Link>
 
         <Link to="/Employee">
-      <button>Aller à la page suivante</button>
-      </Link>
+        <button>Aller à la page suivante</button>
+        </Link>
        
         </div>
-    </div>
-
+          </div>
 
   )
 }
