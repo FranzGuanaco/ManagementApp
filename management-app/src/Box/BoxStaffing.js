@@ -11,6 +11,7 @@ export default function BoxStaffing(props) {
         }}
     >
 
+
         <div className="box"
         style={{
             position: "relative",
