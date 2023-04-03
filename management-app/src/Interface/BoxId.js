@@ -26,6 +26,10 @@ class BoxId extends React.Component {
     console.log(this.state.userName);
   }
 
+  handleLogin = () => {
+    window.location.href = "/Staffing";
+  }
+
   render() {
    
     const { userName } = this.state.userName;
@@ -37,10 +41,9 @@ class BoxId extends React.Component {
           <input type="text" id="username" name="userName" value={userName} placeholder="" onChange={this.handleInputChange} />
           <label htmlFor="password">{this.props.title2}</label>
           <input type="password" id="password" name="password" />
-          <input type="submit" value="Se connecter" />
+          <input type="submit" value="Se connecter" onClick={this.handleLogin} />
         </form>
 
-        <p>{userName}</p>
       </div>
     );
   }

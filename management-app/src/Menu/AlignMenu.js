@@ -22,7 +22,7 @@ function AlignMenu(props) {
         onClick={openNav}
         
       >
-        &#9776; Menu
+        &#9776; 
       </span>
       <div id="mySidenav" className={`sidenav ${isNavOpen ? 'open' : ''}`}>
       
@@ -30,7 +30,7 @@ function AlignMenu(props) {
           &times;
         </a>
         <div class="align">
-        <Button texte ={props.buttonText} link ={props.links}/>
+        <Button texte ={props.buttonText} link ={props.links} />
         <Button texte ={props.buttonText1} link ={props.links1}/>
         <Button texte ={props.buttonText2} link ={props.links2}/>
         <Button texte ={props.buttonText3} link ={props.links3}/>
@@ -47,7 +47,7 @@ function AlignMenu(props) {
 }
 
 
-const Button = (props) => {
+ export const Button = (props) => {
   return (
     
     <Link to= {props.link}>
@@ -55,6 +55,10 @@ const Button = (props) => {
     className="button"
     style={{
       backgroundColor: props.color,
+      width: props.width,
+      height: props.height,
+      minWidth: props.minWidth
+      
     }}
     onClick={props.onClick}>
 
@@ -63,10 +67,17 @@ const Button = (props) => {
     </button>
     </Link>
   );
+
 }
 
+Button.defaultProps = {
+  color: "#0078C7",
+  width: "115px",
+  height: "50px",
+  minWidth: "200px",
+  onClick: () => {}
+};
 
 
 
-
-export default AlignMenu
+export default AlignMenu ;

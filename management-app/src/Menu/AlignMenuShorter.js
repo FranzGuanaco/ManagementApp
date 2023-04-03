@@ -46,7 +46,7 @@ function AlignMenuShorter(props) {
 }
 
 
-const Button = (props) => {
+export const Button = (props) => {
   return (
     
     <Link to= {props.link}>
@@ -54,6 +54,10 @@ const Button = (props) => {
     className="button"
     style={{
       backgroundColor: props.color,
+      width: props.width,
+      height: props.height,
+      minWidth: props.minWidth
+      
     }}
     onClick={props.onClick}>
 
@@ -62,7 +66,16 @@ const Button = (props) => {
     </button>
     </Link>
   );
+
 }
+
+Button.defaultProps = {
+  color: "#0078C7",
+  width: "115px",
+  height: "50px",
+  minWidth: "200px",
+  onClick: () => {}
+};
 
 
 

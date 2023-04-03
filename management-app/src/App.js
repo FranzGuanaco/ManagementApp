@@ -8,6 +8,7 @@ import ViewAccount from './Interface/ViewAccount';
 import EditAccount from './Interface/EditAccount';
 import Track from './Interface/Track';
 import NewProject from './Interface/NewProject';
+import Staffing from './Interface/Staffing';
 import Mail from './Interface/Mail';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/Track' exact element={<Track/>} />
         <Route path='/NewProject' exact element={<NewProject/>} />
         <Route path='/Mail' exact element={<Mail/>} />
+        <Route path='/Staffing' exact element={<Staffing/>} />
       </Routes>
       </BrowserRouter>
       </div>

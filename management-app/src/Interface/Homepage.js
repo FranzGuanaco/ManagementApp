@@ -41,13 +41,11 @@ export default function Homepage() {
         </div>
 
         <div className="center">
-        <Link to>
+        <Link to="/Employee">
         <BoxNews top = "220px"/>
         </Link>
 
-        <Link to="/Employee">
-        <button>Aller à la page suivante</button>
-        </Link>
+
        
         </div>
           </div>

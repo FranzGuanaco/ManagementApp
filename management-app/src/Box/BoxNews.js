@@ -1,6 +1,7 @@
 import React from "react";
-import "./BxNews.css";
+import "./BoxPattern.css";
 import Pic from "../Picture/Pic";
+import EditButton from "../Button/EditButton";
 
 function BoxNews(props) {
 
@@ -13,10 +14,13 @@ function BoxNews(props) {
             left: props.margin,
             justifyContent: "center",
           }}>
+
             <Pic
               marginTop = "2%"
               marginLeft = "4%"
             />
+
+            <EditButton width="15%" height="10%" minWidth="2px"/>
             
         </div>
         
