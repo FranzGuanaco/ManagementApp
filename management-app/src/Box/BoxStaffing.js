@@ -5,10 +5,7 @@ export default function BoxStaffing(props) {
   return (
     
     <div className="staffing-container"
-        style={{
-            marginLeft: "30%",
-            
-        }}
+        
     >
 
 

@@ -26,9 +26,9 @@ class Staffing extends Component {
         <div className='menu-right'>
           <AlignMenuShorter
             bottom="40px"
-            buttonText="Project"
-            links="/"
-            buttonText1="Staffing"
+            buttonText="Homepage"
+            links="/Homepage"
+            buttonText1="Project"
             links1="/"
             buttonText2="Calendar"
             links2="/"
@@ -45,10 +45,10 @@ class Staffing extends Component {
           <div className="circle-arrow" onClick={this.switchProject}>
             <div className="arrow"></div>
           </div>
-        </div>
+        
 
         <BoxStaffing />
-
+        </div>
         <div style={{ display: 'flex', alignItems: 'center', marginLeft: '30%' }}>
           <div style={{ marginRight: '10%' }}>
             <OptionBtn />

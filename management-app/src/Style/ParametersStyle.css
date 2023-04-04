@@ -1,0 +1,26 @@
+.Paramcontainer {
+    display: flex;
+    width: 70%;
+    margin-left: 20%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgb(205, 205, 205);
+    margin-bottom: 4px;
+    cursor: pointer; /* Ajoute un curseur pointer pour indiquer qu'il est clickable */
+  }
+  .Paramcontainer:hover {
+    background-color: #f5f5f5;
+  }
+  /* Style pour les titres */
+  .OptionTitle {
+    font-size: 19px;
+    font-weight: bold;
+    margin-right: 40px;
+  }
+ 
+  /* Style pour les textes */
+  .OptionText {
+    font-size: 16px;
+  }
