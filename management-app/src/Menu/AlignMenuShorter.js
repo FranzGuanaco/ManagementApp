@@ -51,7 +51,7 @@ export const Button = (props) => {
     
     <Link to= {props.link}>
     <button 
-    className="button"
+    className="Buttonpattern"
     style={{
       backgroundColor: props.color,
       width: props.width,

@@ -13,8 +13,9 @@ const EditButton = (props) => {
             minWidth={props.minWidth}
             minHeight={props.minHeight}
             top = '8px'
-            marginLeft = '75%'
-            color='#63A5D0' />
+            marginLeft = {props.marginLeft}
+            color='#63A5D0'
+        />
       
     );
   }

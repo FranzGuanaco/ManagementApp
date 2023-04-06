@@ -1,6 +1,6 @@
 import React from 'react'
 import AlignMenu from '../Menu/AlignMenu'
-import BoxNews from '../Box/BoxNews'
+import BoxEmployee from '../Box/BoxEmployee'
 import ParamPic from './ParamPic'
 import "../App.css"
 import { Link } from 'react-router-dom'
@@ -36,10 +36,11 @@ export default function Employee() {
 
         <div className="center">
             <Link to='/Employee details'>
-            <BoxNews top = "5%"/>
+            <BoxEmployee top = "5%"/>
+
             </Link>
             <Link to='/Employee details'>
-             <BoxNews marginTop = "2%"/>
+             <BoxEmployee marginTop = "2%"/>
              </Link>
         </div>
 

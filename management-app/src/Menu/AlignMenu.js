@@ -52,14 +52,11 @@ function AlignMenu(props) {
     
     <Link to= {props.link}>
     <button 
-    className="button"
+    className="Buttonpattern"
     style={{
       backgroundColor: props.color,
-      width: props.width,
-      height: props.height,
       minWidth: props.minWidth,
       minHeight: props.minHeight,
-      marginTop: props.top,
       marginLeft: props.marginLeft
       
     }}
@@ -75,9 +72,7 @@ function AlignMenu(props) {
 
 Button.defaultProps = {
   color: "#0078C7",
-  width: "115px",
-  height: "50px",
-  minWidth: "200px",
+  
   onClick: () => {}
 };
 
