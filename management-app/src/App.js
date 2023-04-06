@@ -11,6 +11,7 @@ import NewProject from './Interface/NewProject';
 import Staffing from './Interface/Staffing';
 import Mail from './Interface/Mail';
 import Parameters from './Interface/Parameters';
+import MailSent from './Interface/MailSent';
 
 function App() {
 
@@ -22,13 +23,14 @@ function App() {
         <Route path='/' element={<BoxId/>} />
         <Route path='/Homepage' exact element={<Homepage/>} />
         <Route path='/Employee' exact element={<Employee/>} />
-        <Route path='/ViewAccount' exact element={<ViewAccount/>} />
+        <Route path='/Employee details' exact element={<ViewAccount/>} />
         <Route path='/EditAccount' exact element={<EditAccount/>} />
         <Route path='/Track' exact element={<Track/>} />
         <Route path='/NewProject' exact element={<NewProject/>} />
         <Route path='/Mail' exact element={<Mail/>} />
         <Route path='/Staffing' exact element={<Staffing/>} />
         <Route path='/Parameters' exact element={<Parameters/>} />
+        <Route path='/MailSent' exact element={<MailSent/>} />
       </Routes>
       </BrowserRouter>
       </div>

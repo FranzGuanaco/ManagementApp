@@ -11,19 +11,19 @@ function BoxNews(props) {
         style={{
             position: "relative",
             bottom: props.top,
+            marginTop: props.marginTop,
             left: props.margin,
             justifyContent: "center",
           }}>
 
-            <Pic
-              marginTop = "2%"
-              marginLeft = "4%"
-            />
+        <div style={{ position: "absolute", top: "15%", left: "4%" }}>
+        <Pic />
+     </div>
 
-            <EditButton width="15%" height="10%" minWidth="2px"/>
-            
+     <div style={{ position: "relative", marginLeft: "4%", top: "10%" }}>
+        <EditButton width="12%" height="100%" minWidth="12px" minHeight="33px"/>
+     </div>
         </div>
-        
    
 );
 }

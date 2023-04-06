@@ -41,12 +41,7 @@ export default function Homepage() {
         </div>
 
         <div className="center">
-        <Link to="/Employee">
         <BoxNews top = "220px"/>
-        </Link>
-
-
-       
         </div>
           </div>
 

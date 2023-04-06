@@ -57,7 +57,10 @@ function AlignMenu(props) {
       backgroundColor: props.color,
       width: props.width,
       height: props.height,
-      minWidth: props.minWidth
+      minWidth: props.minWidth,
+      minHeight: props.minHeight,
+      marginTop: props.top,
+      marginLeft: props.marginLeft
       
     }}
     onClick={props.onClick}>
