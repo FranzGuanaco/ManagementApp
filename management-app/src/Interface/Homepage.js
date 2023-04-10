@@ -1,15 +1,15 @@
 import React from 'react'
-import "../App.css"
 import AlignMenuShorter from '../Menu/AlignMenuShorter';
 import BoxNews from '../Box/BoxNews'
+import BoxEmployee from '../Box/BoxEmployee'
 import { Link } from "react-router-dom";
 import ParamPic from './ParamPic';
+import "../App.css"
 
 export default function Homepage() {
   return (
     
     <div className="home">
-    <div className="menu-container">
       
         <div className='menu-right'>
         <AlignMenuShorter
@@ -34,16 +34,25 @@ export default function Homepage() {
         links5 = "/"
         />
 
-        </div>
-        <div className='menu-left'>
-          <ParamPic/>
-        </div>
+        <div className="center">
+            <Link to='/Employee details'>
+            <BoxEmployee top = "5%"/>
+
+            </Link>
+            <Link to='/Employee details'>
+             <BoxNews marginTop = "2%"/>
+             </Link>
         </div>
 
-        <div className="center">
-        <BoxNews top = "220px"/>
+        <div className='menu-left'>
+        <Link to='/Parameters'>
+        <ParamPic/>
+        </Link>
         </div>
-          </div>
+        </div>
+        </div>
+     
+
 
   )
 }

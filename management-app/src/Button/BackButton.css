@@ -1,32 +1,36 @@
-.back-button {
-    display: flex;
-    padding: 20px 40px;
-    background-color: #0077cc;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 15px;
-    cursor: pointer;
-    margin-left: 400px;
-  }
-  
-  .back-button:hover {
-    background-color: #005fa3;
-  }
-  
-  .back-button i {
-    margin-right: 10px;
-  }
-  
-  .arrow {
-    display: inline-block;
-    width: 30px;
-    height: 1px;
-    justify-content: center;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 20px solid white;
-    transform: rotate(0deg);
-    margin-right: 30px;
-  }
-  
+.arrow-btn {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px; /* Arrondi les angles du bouton */
+  cursor: pointer;
+}
+
+.arrow-btn .arrow {
+  position: absolute;
+  top: 50%;
+  left: 20px; /* Positionnement de la flèche */
+  transform: translateY(-50%) rotate(180deg); /* Rotation de la flèche */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 8px; /* Modification de la taille de la flèche */
+  border-color: transparent transparent transparent #fff; /* Modification de la couleur de la flèche */
+}
+
+.arrow-btn:hover {
+  background-color: #0056b3;
+}
+
+.arrow-btn:hover .arrow {
+  border-color: transparent transparent transparent #0056b3;
+}
+
+
+

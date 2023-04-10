@@ -27,7 +27,7 @@ class BoxId extends React.Component {
   }
 
   handleLogin = () => {
-    window.location.href = "/Staffing";
+    window.location.href = "/Homepage";
   }
 
   render() {

@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import "./BackButton.css"
 
 
-function BackButton() {
+function BackButton(props) {
         return (
             <div>
-                <button class="back-button">
-                <span class="arrow"></span>
-                Back
-                </button>
+                <button class="arrow-btn" onClick={props.onClickBack}>
+                    Back 
+                <span class="arrow"></span></button>
 
             </div>
         );
@@ -18,7 +17,7 @@ function BackButton() {
 
 
 BackButton.propTypes = {
-
+    onClickBack: PropTypes.func.isRequired
 };
 
 

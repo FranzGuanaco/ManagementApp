@@ -20,8 +20,8 @@ function BoxNews(props) {
         <Pic />
      </div>
 
-     <div style={{ position: "relative", marginLeft: "4%", top: "10%" }}>
-        <EditButton width="12%" height="100%" minWidth="12px" minHeight="33px"/>
+     <div style={{ position: "relative", marginLeft: "70%", top: "10%"  }}>
+        <EditButton width="66%" height="100%" minWidth="100px" minHeight="40px"/>
      </div>
         </div>
    

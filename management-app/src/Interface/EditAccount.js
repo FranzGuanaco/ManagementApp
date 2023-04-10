@@ -3,9 +3,15 @@ import AlignMenu from '../Menu/AlignMenu';
 import BackButton from '../Button/BackButton'
 import Form from '../Form/Form';
 import Pic from '../Picture/Pic';
+import ParamPic from './ParamPic';
+import { Link } from 'react-router-dom'
 import "../App.css";
 
 function EditAccount () {
+
+    const Backfunc = () => { // Ajout de const devant handleLogin pour définir une fonction fléchée
+        window.location.href = "/Employee details";
+    }
 
     return (
 
@@ -35,6 +41,12 @@ function EditAccount () {
        buttonText6 = "Mail"
        links6 ="/"
     />
+
+    <div className='menu-left'>
+            <Link to='/Parameters'>
+            <ParamPic/>
+            </Link>
+        </div>
     
     <div className="container">
     <div className="randombox-container">
@@ -71,7 +83,7 @@ function EditAccount () {
     </div>
 
     <div style={{marginTop:'20px'}}>
-    <BackButton/>
+    <BackButton onClickBack={Backfunc} style={{margin: 'auto'}} />
     </div>
 
     <div className="pic">
