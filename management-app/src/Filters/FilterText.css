@@ -1,0 +1,37 @@
+.search-container {
+    display: flex;
+    align-items: stretch; /* Aligner les éléments */
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .input-container {
+    display: flex; /* Ajouté pour aligner l'input et le bouton */
+  }
+  
+  .search-input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .search-button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #0564A3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .search-button:hover {
+    background-color: #034a7d;
+  }
+  
+  
+  

@@ -12,6 +12,7 @@ import Staffing from './Interface/Staffing';
 import Mail from './Interface/Mail';
 import Parameters from './Interface/Parameters';
 import MailSent from './Interface/MailSent';
+import Projects from './Interface/Projects';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/Staffing' exact element={<Staffing/>} />
         <Route path='/Parameters' exact element={<Parameters/>} />
         <Route path='/MailSent' exact element={<MailSent/>} />
+        <Route path='/Projects' exact element={<Projects/>} />
       </Routes>
       </BrowserRouter>
       </div>

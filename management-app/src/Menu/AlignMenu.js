@@ -56,7 +56,8 @@ function AlignMenu(props) {
     style={{
       backgroundColor: props.color,
       minWidth: props.minWidth,
-      minHeight: props.minHeight,
+      width: props.width,
+      height: props.height,
       marginLeft: props.marginLeft
       
     }}
@@ -72,6 +73,9 @@ function AlignMenu(props) {
 
 Button.defaultProps = {
   color: "#0078C7",
+  width: "115px",
+  height: "50px",
+  minWidth: "200px",
   
   onClick: () => {}
 };
