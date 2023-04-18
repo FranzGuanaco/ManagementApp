@@ -15,6 +15,7 @@ class Projects extends React.Component {
 
     <div className="Project">
 
+
          <AlignMenu
               bottom="44px"
               buttonText="Home"
@@ -33,8 +34,7 @@ class Projects extends React.Component {
               links6="/"
             />
 
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ marginLeft:'5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '60%', padding: '20px', boxSizing: 'border-box', border: 'solid', color: 'red' }}>
+      <div style={{ marginLeft:'25%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '60%', padding: '20px', boxSizing: 'border-box', border: 'solid', color: 'red' }}>
         <FilterButton options={options}/>
         <FilterButton options={options}/>
         <FilterButton options={options}/>
@@ -44,7 +44,7 @@ class Projects extends React.Component {
         <ProjectCard />
         </div>
     </div>
-    </div>
+  
 
     );
 }}
