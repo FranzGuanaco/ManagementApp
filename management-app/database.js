@@ -52,11 +52,23 @@ app.post('/auth/login', function(req, res) {
   );
 });
 
+app.post('/admin', function(req, res) {
+  const admin = req.body;
 
-
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  connection.query(
+    "INSERT INTO Admin SET ?",
+    admin,
+    function(err, results, fields) {
+      if (err) {
+        res.status(500).send({ error: 'Internal Server Error' });
+        return;
+      }
+      res.status(200).send({ success: 'Admin created' });
+    }
+  );
 });
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 

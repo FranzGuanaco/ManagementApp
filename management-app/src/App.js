@@ -14,6 +14,7 @@ import Parameters from './Interface/Parameters';
 import MailSent from './Interface/MailSent';
 import Projects from './Interface/Projects';
 import Report from './Interface/Report';
+import EditProject from './Interface/EditProject';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route path='/EditAccount' exact element={<EditAccount/>} />
         <Route path='/Track' exact element={<Track/>} />
         <Route path='/NewProject' exact element={<NewProject/>} />
+        <Route path='/EditProject' exact element={<EditProject/>} />
         <Route path='/Mail' exact element={<Mail/>} />
         <Route path='/Staffing' exact element={<Staffing/>} />
         <Route path='/Parameters' exact element={<Parameters/>} />

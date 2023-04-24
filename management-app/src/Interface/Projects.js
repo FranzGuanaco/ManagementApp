@@ -5,6 +5,7 @@ import FilterButton from "../Filters/Filter";
 import ProjectCard from "../Box/BoxProjects";
 import AlignMenu from "../Menu/AlignMenu";
 import FilterText from "../Filters/FilterText";
+import Pic from "../Picture/Pic";
 
 class Projects extends React.Component {
 
@@ -34,6 +35,7 @@ class Projects extends React.Component {
               links6="/"
             />
 
+<Pic/>
       <div style={{ marginLeft:'25%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '60%', padding: '20px', boxSizing: 'border-box', border: 'solid', color: 'red' }}>
         <FilterButton options={options}/>
         <FilterButton options={options}/>

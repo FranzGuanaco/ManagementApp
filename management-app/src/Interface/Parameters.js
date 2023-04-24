@@ -15,7 +15,6 @@ class Parameters extends Component {
             username2: '',
             password2: ''
         };
-
       }
     
       openModalAdmin = () => {
@@ -38,11 +37,36 @@ class Parameters extends Component {
         const { name, value } = event.target;
         this.setState({ [name]: value });
       }
-    
+
       handleSubmit = () => {
         const { username, password } = this.state;
+      
+        fetch('http://localhost:3001/admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log('Admin added');
+            this.closeModalAdmin();
+          } else {
+            console.log('Admin not added');
+          }
+        })
+        .catch(error => console.error(error));
+      }
+      
+    
+      handleSubmit2 = () => {
+        const { username2, password2 } = this.state;
         // Faites quelque chose avec les informations de l'utilisateur
-        console.log(`Nom d'utilisateur : ${username}, Mot de passe : ${password}`);
+        console.log(`Ancien mot de passe : ${username2}, Nouveau mot de passe : ${password2}`);
         this.closeModalAdmin();
       }
 
@@ -113,7 +137,7 @@ class Parameters extends Component {
               <input type="text" id="username2" className='inputAddAdmin' name="username2" value={username2} onChange={this.handleInputChange} />
               <label htmlFor="password">Nouveau mot de passe :</label>
               <input type="password" id="password2" className='inputAddAdmin' name="password2" value={password2} onChange={this.handleInputChange} />
-              <button onClick={this.handleSubmit}>Valider</button>
+              <button onClick={this.handleSubmit2}>Valider</button>
             </div>
           </div>
         )}
