@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-connection.query('SELECT * FROM Admin', function(err, results, fields) {
+connection.query('SELECT * FROM Employees', function(err, results, fields) {
   console.log(results);
 });
 
@@ -67,6 +67,19 @@ app.post('/admin', function(req, res) {
     }
   );
 });
+
+app.get('/employees', function(req, res) {
+  connection.query('SELECT Position, Firstname, Mail, Cost FROM Employees', function(err, results, fields) {
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
+
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
