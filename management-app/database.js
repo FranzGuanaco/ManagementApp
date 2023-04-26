@@ -64,8 +64,7 @@ app.post('/admin', function(req, res) {
         return;
       }
       res.status(200).send({ success: 'Admin created' });
-    }
-  );
+    });
 });
 
 app.get('/employees', function(req, res) {
@@ -78,7 +77,15 @@ app.get('/employees', function(req, res) {
   });
 });
 
-
+app.get('/delete', function(req, res) {
+  connection.query('DELETE FROM Employees WHERE Position LIKE "%Junior%"', function(err, results, fields) {
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send('suppression reussi.');
+  });
+});
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

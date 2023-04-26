@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Style/ParametersStyle.css'
 import AlignMenuShorter from '../Menu/AlignMenuShorter';
+import axios from 'axios';
 
 class Parameters extends Component {
 
@@ -13,7 +14,10 @@ class Parameters extends Component {
             password: '',
           isModalPasswordOpen: false,
             username2: '',
-            password2: ''
+            password2: '',
+          isModalDeleteOpen: false,
+            username3: '',
+            password3: '',
         };
       }
     
@@ -31,6 +35,14 @@ class Parameters extends Component {
     
       closeModalPassword = () => {
         this.setState({ isModalPasswordOpen: false });
+      }
+
+      DeleteRequest = () => {
+        this.setState({ isModalDeleteOpen: true });
+      }
+
+      CloseDeleteRequest = () => {
+        this.setState({ isModalDeleteOpen: false });
       }
     
       handleInputChange = (event) => {
@@ -70,6 +82,20 @@ class Parameters extends Component {
         this.closeModalAdmin();
       }
 
+      handleSubmit3= () => {
+        const { username3, password3 } = this.state;
+        // Faites quelque chose avec les informations de l'utilisateur
+        axios.get("http://localhost:3001/delete")
+        .then((response) => {
+          console.log('junior supp')
+        })
+        .catch((error) => {
+          console.log('erreur')
+        });
+        console.log(`Acompte de ${username3} au mot de passe : ${password3} supprimé`);
+        this.CloseDeleteRequest();
+      }
+
         LogOutRequest = (e) => {
             alert('êtes vous sûr de vouloir vous déconnecter ?')
 
@@ -77,6 +103,7 @@ class Parameters extends Component {
   render() {
     const { isModalAdminOpen, username, password } = this.state;
     const { isModalPasswordOpen, username2, password2 } = this.state;
+    const { isModalDeleteOpen, username3, password3 } = this.state;
 
     return (
       <div className="staffing">
@@ -112,9 +139,14 @@ class Parameters extends Component {
       <div class="OptionText">{this.props.text || Parameters.defaultProps.text}</div>
     </div>
 
+    <div class="Paramcontainer" onClick={this.DeleteRequest}>
+      <div class="OptionTitle">Delete account</div>
+      <div class="OptionText">{this.props.text || Parameters.defaultProps.text}</div>
+    </div>
 
 
-    {isModalAdminOpen && (
+
+{isModalAdminOpen && (
           <div className="modal">
             <div className="modal-content">
               <span className="close" onClick={this.closeModalAdmin}>&times;</span>
@@ -138,6 +170,20 @@ class Parameters extends Component {
               <label htmlFor="password">Nouveau mot de passe :</label>
               <input type="password" id="password2" className='inputAddAdmin' name="password2" value={password2} onChange={this.handleInputChange} />
               <button onClick={this.handleSubmit2}>Valider</button>
+            </div>
+          </div>
+        )}
+
+{isModalDeleteOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={this.CloseDeleteRequest}>&times;</span>
+              <h2>Mot de passe:</h2>
+              <label htmlFor="username">Ancien mot de passe :</label>
+              <input type="text" id="username2" className='inputAddAdmin' name="username3" value={username3} onChange={this.handleInputChange} />
+              <label htmlFor="password">Nouveau mot de passe :</label>
+              <input type="password" id="password2" className='inputAddAdmin' name="password3" value={password3} onChange={this.handleInputChange} />
+              <button onClick={this.handleSubmit3}>Valider</button>
             </div>
           </div>
         )}
