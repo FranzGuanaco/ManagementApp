@@ -15,6 +15,7 @@ import MailSent from './Interface/MailSent';
 import Projects from './Interface/Projects';
 import Report from './Interface/Report';
 import EditProject from './Interface/EditProject';
+import Vacancy from './Interface/Vacancy';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/MailSent' exact element={<MailSent/>} />
         <Route path='/Projects' exact element={<Projects/>} />
         <Route path='/Report' exact element={<Report/>} />
+        <Route path='/Vacancy' exact element={<Vacancy/>} />
       </Routes>
       </BrowserRouter>
       </div>

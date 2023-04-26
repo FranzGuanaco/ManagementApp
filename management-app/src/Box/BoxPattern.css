@@ -1,7 +1,6 @@
 .box {
   border: 1px solid #adabab;
   border-radius: 20px;
-  width: 100%;
   height: auto;
   transition: all 0.5s ease-out;
   margin-bottom: 15%;
@@ -17,23 +16,10 @@
   box-shadow: none; /* remove the box shadow when it is clicked */
 }
 
-@media (min-width: 375px) {
-  .box {
-    width: calc(100px + 45.5vw);
-    height: calc(70px + 15.5vw);
-    margin-bottom: 5%;
-  }
 
   .box:last-of-type {
     margin-top: 10%;
   }
-}
-
-
-@media (max-width: 375px) {
-  .box {
-    margin-left: 10%;
-  }}
  
   
 .circleStaff {

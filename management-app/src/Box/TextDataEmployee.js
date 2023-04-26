@@ -6,7 +6,7 @@ const TextDataEmployee = (props) => {
     return (
         <div class="containerTextData" style={{ width: props.width, height: props.height, padding: props.padding, 
         marginLeft: props.left}}>
-      <p>{props.Nom}</p>
+      <p>{props.p}</p>
       <p>{props.poste}</p>
       <p>{props.contact}</p>
       <p>{props.disponibilité}</p>
