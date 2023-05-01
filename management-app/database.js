@@ -87,6 +87,16 @@ app.get('/delete', function(req, res) {
   });
 });
 
+app.get('/EmployeeDetails', function(req, res) {
+  connection.query('SELECT * FROM Employees', function(err, results, fields) {
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

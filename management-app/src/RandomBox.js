@@ -14,7 +14,7 @@ const RandomBox = (props) => {
                 marginBottom: '14px'
             }}
                 >
-                    test
+                  <p>{props.data}</p>  
             </div>
         );
     }
