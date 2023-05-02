@@ -16,6 +16,8 @@ import Projects from './Interface/Projects';
 import Report from './Interface/Report';
 import EditProject from './Interface/EditProject';
 import Vacancy from './Interface/Vacancy';
+import Calendar from './Interface/Calendar';
+import Agenda from './Interface/Agenda';
 
 function App() {
 
@@ -39,6 +41,7 @@ function App() {
         <Route path='/Projects' exact element={<Projects/>} />
         <Route path='/Report' exact element={<Report/>} />
         <Route path='/Vacancy' exact element={<Vacancy/>} />
+        <Route path='/Calendar' exact element={<Agenda/>} />
       </Routes>
       </BrowserRouter>
       </div>
