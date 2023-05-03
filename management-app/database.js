@@ -97,8 +97,18 @@ app.get('/EmployeeDetails', function(req, res) {
   });
 });
 
+app.get('/Project', function(req, res) {
+  connection.query('SELECT p.*, GROUP_CONCAT(ps.Employees_name SEPARATOR ", ") AS employees FROM Project p JOIN project_staffing ps ON p.Name = ps.Project_name GROUP BY p.id', function(err, results, fields) {
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 
 
