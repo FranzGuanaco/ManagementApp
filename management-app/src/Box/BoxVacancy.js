@@ -29,6 +29,8 @@ function BoxVacancy(props) {
         <Pic />
       </div>
 
+        <h3>{props.text1}</h3>
+        <h3>{props.text2}</h3>
     </div>
   );
 }

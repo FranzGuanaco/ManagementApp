@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-connection.query('SELECT * FROM Employees', function(err, results, fields) {
+connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields) {
   console.log(results);
 });
 
@@ -83,7 +83,7 @@ app.get('/delete', function(req, res) {
       res.status(500).send({ error: 'Internal Server Error' });
       return;
     }
-    res.status(200).send('suppression reussi.');
+    res.status(200).send('suppression réussie.');
   });
 });
 
@@ -107,7 +107,18 @@ app.get('/Project', function(req, res) {
   });
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/Vacancy', function(req, res) {
+  connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
 
 
 
