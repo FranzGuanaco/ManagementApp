@@ -117,6 +117,26 @@ app.get('/Vacancy', function(req, res) {
   });
 });
 
+app.post('/AddAccount', function(req, res) {
+  console.log('AddAccount endpoint hit');
+  const { Position, Firstname, Surname, Mail, Cost, age, Diploma } = req.body;
+  
+  console.log('Request body:', req.body); // to check what data is coming in the request
+
+  const query = `INSERT INTO Employees (Position, Firstname, Surname, Mail, Cost, age, Diploma) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  const values = [Position, Firstname, Surname, Mail, Cost, age, Diploma];
+
+  connection.query(query, values, function(err, results, fields){
+    if (err) {
+      console.log('la query ne fonctionne pas'); // to check if there's an error executing the query
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    console.log('Query executed successfully, results:', results); // to check the result of the query
+    res.status(200).send(results);
+  });
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 

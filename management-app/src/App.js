@@ -18,6 +18,7 @@ import EditProject from './Interface/EditProject';
 import Vacancy from './Interface/Vacancy';
 import Calendar from './Interface/Calendar';
 import Agenda from './Interface/Agenda';
+import AddAccount from './Interface/AddAccount';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/Employee' exact element={<Employee/>} />
         <Route path='/Employee details' exact element={<ViewAccount/>} />
         <Route path='/EditAccount' exact element={<EditAccount/>} />
+        <Route path='/AddAccount' exact element={<AddAccount/>} />
         <Route path='/Track' exact element={<Track/>} />
         <Route path='/NewProject' exact element={<NewProject/>} />
         <Route path='/EditProject' exact element={<EditProject/>} />
