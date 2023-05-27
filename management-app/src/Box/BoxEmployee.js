@@ -53,10 +53,10 @@ function BoxEmployee(props) {
               left="25%"
               width="45%"
               Nom={`${employee.Firstname} ${employee.Surname}`}
-              poste={employee.Position}
+              poste={employee.position}
               contact={employee.Mail}
-              disponibilité={employee.Avaibility}
-              cost={employee.Cost}
+              disponibilité={employee.Availability}
+              cost={employee.Income}
             />
           </div>
         </div>
