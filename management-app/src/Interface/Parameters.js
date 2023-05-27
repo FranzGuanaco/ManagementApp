@@ -187,10 +187,7 @@ class Parameters extends Component {
             </div>
           </div>
         )}
-           
    </div>
-
-   
     );
   }
 }

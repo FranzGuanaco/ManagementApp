@@ -122,7 +122,7 @@ app.post('/AddAccount', function(req, res) {
   const { Position, Firstname, Surname, Mail, Cost, age, Diploma } = req.body;
   
   console.log('Request body:', req.body); // to check what data is coming in the request
-
+  
   const query = `INSERT INTO Employees (Position, Firstname, Surname, Mail, Cost, age, Diploma) VALUES (?, ?, ?, ?, ?, ?, ?)`;
   const values = [Position, Firstname, Surname, Mail, Cost, age, Diploma];
 
