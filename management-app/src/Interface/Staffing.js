@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
+import axios from 'axios';
 import "../StaffingStyle.css";
 import BoxStaffing from '../Box/BoxStaffing';
 import OptionBtn from '../Button/OptionBtn';
@@ -11,16 +12,35 @@ class Staffing extends Component {
 
     this.state = {
       project: "switch",
+      projects: [],
+      employees: [],
+      staffing: []
     };
   }
 
-  switchProject = (e) => {
-    
-    console.log(this.state.project);
+  componentDidMount() {
+    axios
+      .get('http://localhost:3001/Staffing')
+      .then((response) => {
+        console.log('reussi');
+        const { result1, result2, result3 } = response.data;
+        this.setState({ projects: result1, employees: result2, staffing: result3});;
+      
+      })
+      .catch((error) => {
+        console.log('raté');
+      });
+  }
 
+  switchProject = (e) => {
+    console.log(this.state.project);
   };
 
   render() {
+    const { projects } = this.state;
+    const { employees } = this.state;
+    const { staffing } = this.state;
+
     return (
       <div className="staffing">
         <div className='menu-right'>
@@ -45,16 +65,17 @@ class Staffing extends Component {
           <div className="circle-arrow" onClick={this.switchProject}>
             <div className="arrow"></div>
           </div>
-        
 
-        <BoxStaffing />
+          <BoxStaffing 
+          projectName={projects.map(project => project.project_name)}/>
         </div>
+
         <div style={{ display: 'flex', alignItems: 'center', marginLeft: '30%' }}>
           <div style={{ marginRight: '10%' }}>
-            <OptionBtn />
+            <OptionBtn btntext="er" />
           </div>
           <div style={{ marginRight: '10%' }}>
-            <OptionBtn />
+            <OptionBtn btntext="experience" />
           </div>
           <div style={{ marginRight: '5%' }}>
             <OptionBtn />
@@ -62,7 +83,10 @@ class Staffing extends Component {
         </div>
 
         <div style={{ marginTop: '2%', marginLeft: "30%" }}>
-          <RandomBox size="150px" width={'73%'} radius={'22px'} />
+          <RandomBox size="150px" width={'73%'} radius={'22px'} 
+          data={employees.map(employee => employee.Firstname)}
+          click={staffing}
+          />
         </div>
 
         <div style={{ marginTop: '10px', marginLeft: "30%" }}>
@@ -82,4 +106,3 @@ class Staffing extends Component {
 }
 
 export default Staffing;
-

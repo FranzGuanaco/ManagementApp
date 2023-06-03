@@ -4,10 +4,7 @@ import "../Box/BoxPattern.css";
 export default function BoxStaffing(props) {
   return (
     
-    <div className="staffing-container"
-        
-    >
-
+    <div className="staffing-container">
 
         <div className="box"
         style={{
@@ -19,7 +16,7 @@ export default function BoxStaffing(props) {
           }}>
            
             <div class="circleStaff"></div>
-            <div class="description">Desciption</div>
+            <div class="description">{props.projectName}</div>
             <div class="price">Prix</div>
             <div class="date">Date</div>
             <div class="progressbar">

@@ -27,9 +27,8 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-connection.query('SELECT position, Firstname, Mail, Availability, Income FROM Employees', function(err, results, fields) {
-  console.log(results);
-});
+connection.query('SELECT project_name from Project where id = 1', function(err, results, fields){
+ console.log(results) })
 
 app.post('/auth/login', function(req, res) {
   const { username, password } = req.body;
@@ -98,7 +97,7 @@ app.get('/EmployeeDetails', function(req, res) {
 });
 
 app.get('/Project', function(req, res) {
-  connection.query('SELECT p.*, GROUP_CONCAT(ps.Employees_name SEPARATOR ", ") AS employees FROM Project p JOIN project_staffing ps ON p.Name = ps.Project_name GROUP BY p.id', function(err, results, fields) {
+  connection.query('SELECT * from Project', function(err, results, fields) {
     if (err) {
       res.status(500).send({ error: 'Internal Server Error' });
       return;
@@ -116,6 +115,65 @@ app.get('/Vacancy', function(req, res) {
     res.status(200).send(results);
   });
 });
+
+app.get('/Vacancy', function(req, res) {
+  connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
+app.get('/Staffing', function(req, res) {
+  const query1 = new Promise((resolve, reject) => {
+    connection.query('SELECT project_name from Project where id = 1', function(err, results, fields){
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(results);
+    });
+  });
+
+  const query2 = new Promise((resolve, reject) => {
+    connection.query('SELECT Firstname from Employees where id = 6', function(err, results, fields){
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(results);
+    });
+  });
+
+  const query3 = new Promise((resolve, reject) => {
+    connection.query('SELECT Project.project_name, Employees.employee_name FROM ProjectEmployee JOIN Project ON Project.id = ProjectEmployee.project_id JOIN Employee ON Employee.id = ProjectEmployee.employee_id;', function(err, results, fields){
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(results);
+    });
+  });
+
+  Promise.all([query1, query2, query3])
+    .then(([result1, result2, result3]) => {
+      const combinedResults = {
+        result1,
+        result2,
+        result3
+      };
+      res.status(200).send(combinedResults);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send({ error: 'Il y a un souci' });
+    });
+});
+
+
+
 
 app.post('/AddAccount', function(req, res) {
   console.log('AddAccount endpoint hit');

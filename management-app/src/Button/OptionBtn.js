@@ -1,6 +1,6 @@
 import React from "react";
 
-const OptionBtn = () => {
+const OptionBtn = (props) => {
 
   
 
@@ -15,7 +15,7 @@ const OptionBtn = () => {
             cursor: 'pointer',
             width: '215px',
             height: '40px'
-          }}>Cliquez ici</button>
+          }}>{props.btntext}</button>
 
 );
 }
