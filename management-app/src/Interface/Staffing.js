@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import "../StaffingStyle.css";
 import BoxStaffing from '../Box/BoxStaffing';
@@ -11,35 +11,30 @@ class Staffing extends Component {
     super(props);
 
     this.state = {
-      project: "switch",
-      projects: [],
-      employees: [],
-      staffing: []
+      employees: [],  // Ajout de l'initialisation du state
+      projects: []
     };
   }
 
   componentDidMount() {
-    axios
-      .get('http://localhost:3001/Staffing')
+    axios.get('http://localhost:3001/Staffing')
       .then((response) => {
-        console.log('reussi');
-        const { result1, result2, result3 } = response.data;
-        this.setState({ projects: result1, employees: result2, staffing: result3});;
-      
+        console.log('Réussi');
+        const { employees, projects } = response.data;
+        this.setState({ employees, projects });
       })
       .catch((error) => {
-        console.log('raté');
+        console.log('Erreur :', error);
       });
   }
+  
 
   switchProject = (e) => {
-    console.log(this.state.project);
+    console.log(this.state.result);
   };
 
   render() {
-    const { projects } = this.state;
-    const { employees } = this.state;
-    const { staffing } = this.state;
+    const { employees, projects } = this.state;
 
     return (
       <div className="staffing">
@@ -65,17 +60,17 @@ class Staffing extends Component {
           <div className="circle-arrow" onClick={this.switchProject}>
             <div className="arrow"></div>
           </div>
-
-          <BoxStaffing 
-          projectName={projects.map(project => project.project_name)}/>
+          {projects.map((project) => (
+          <BoxStaffing  projectName={project.project_name}/>
+          ))}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', marginLeft: '30%' }}>
           <div style={{ marginRight: '10%' }}>
-            <OptionBtn btntext="er" />
+            <OptionBtn btntext="Staffé" />
           </div>
           <div style={{ marginRight: '10%' }}>
-            <OptionBtn btntext="experience" />
+            <OptionBtn btntext="Non staffé" />
           </div>
           <div style={{ marginRight: '5%' }}>
             <OptionBtn />
@@ -83,22 +78,15 @@ class Staffing extends Component {
         </div>
 
         <div style={{ marginTop: '2%', marginLeft: "30%" }}>
-          <RandomBox size="150px" width={'73%'} radius={'22px'} 
-          data={employees.map(employee => employee.Firstname)}
-          click={staffing}
-          />
-        </div>
-
-        <div style={{ marginTop: '10px', marginLeft: "30%" }}>
-          <RandomBox size="150px" width={'73%'} radius={'22px'} />
-        </div>
-
-        <div style={{ marginTop: '10px', marginLeft: "30%" }}>
-          <RandomBox size="150px" width={'73%'} radius={'22px'} />
-        </div>
-
-        <div style={{ marginTop: '10px', marginLeft: "30%" }}>
-          <RandomBox size="150px" width={'73%'} radius={'22px'} />
+          {employees.map((employee) => (
+            <RandomBox
+              key={employee.id}
+              size="150px"
+              width={'73%'}
+              radius={'22px'}
+              data={`${employee.Firstname} ${employee.Surname}`}
+            />
+          ))}
         </div>
       </div>
     );
@@ -106,3 +94,5 @@ class Staffing extends Component {
 }
 
 export default Staffing;
+
+

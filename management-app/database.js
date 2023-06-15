@@ -27,8 +27,13 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-connection.query('SELECT project_name from Project where id = 1', function(err, results, fields){
- console.log(results) })
+connection.query('SELECT * FROM Employees', function(err, results, fields) {
+  if (err) {
+    console.error('Erreur: ' + err.stack);
+    return;
+  }
+  console.log('Fetched projects from the database:', results);
+});
 
 app.post('/auth/login', function(req, res) {
   const { username, password } = req.body;
@@ -96,6 +101,7 @@ app.get('/EmployeeDetails', function(req, res) {
   });
 });
 
+
 app.get('/Project', function(req, res) {
   connection.query('SELECT * from Project', function(err, results, fields) {
     if (err) {
@@ -127,51 +133,27 @@ app.get('/Vacancy', function(req, res) {
 });
 
 app.get('/Staffing', function(req, res) {
-  const query1 = new Promise((resolve, reject) => {
-    connection.query('SELECT project_name from Project where id = 1', function(err, results, fields){
-      if (err) {
-        reject(err);
+  const query1 = 'SELECT * FROM Employees';
+  const query2 = 'SELECT * FROM Project';
+
+  connection.query(query1, function(err1, employees, fields1) {
+    if (err1) {
+      console.error('Erreur lors de la récupération des employés:', err1.stack);
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+
+    connection.query(query2, function(err2, projects, fields2) {
+      if (err2) {
+        console.error('Erreur lors de la récupération des projets:', err2.stack);
+        res.status(500).send({ error: 'Internal Server Error' });
         return;
       }
-      resolve(results);
+
+      res.status(200).send({ employees, projects });
     });
   });
-
-  const query2 = new Promise((resolve, reject) => {
-    connection.query('SELECT Firstname from Employees where id = 6', function(err, results, fields){
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(results);
-    });
-  });
-
-  const query3 = new Promise((resolve, reject) => {
-    connection.query('SELECT Project.project_name, Employees.employee_name FROM ProjectEmployee JOIN Project ON Project.id = ProjectEmployee.project_id JOIN Employee ON Employee.id = ProjectEmployee.employee_id;', function(err, results, fields){
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(results);
-    });
-  });
-
-  Promise.all([query1, query2, query3])
-    .then(([result1, result2, result3]) => {
-      const combinedResults = {
-        result1,
-        result2,
-        result3
-      };
-      res.status(200).send(combinedResults);
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send({ error: 'Il y a un souci' });
-    });
 });
-
 
 
 

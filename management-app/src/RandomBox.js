@@ -9,7 +9,8 @@ const RandomBox = (props) => {
                 borderRadius: props.radius,
                 width: props.width,
                 height: props.size,
-                marginBottom: '14px'
+                marginBottom: '14px',
+                id: props.id
             }}
         >
             <p>{props.data}</p>
@@ -31,7 +32,8 @@ RandomBox.defaultProps = {
     radius: '20px',
     width: '300px',
     size: '220px',
-    data: ''
+    data: '',
+    id: 'test'
 };
 
 export default RandomBox;

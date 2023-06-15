@@ -55,10 +55,9 @@ const Projects = () => {
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', paddingLeft: '22%' }}>
         {projects.map((project) => (
           <ProjectCard
-            key={project.id}
-            name={project.project_name}
-            description={project.description}
-            status={project.Status}
+           name={project.project_name}
+           description={project.description}
+           // status={project.Status}
             
             
           />
