@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import "../StaffingStyle.css";
 import BoxStaffing from '../Box/BoxStaffing';
 import OptionBtn from '../Button/OptionBtn';
@@ -11,9 +14,22 @@ class Staffing extends Component {
     super(props);
 
     this.state = {
-      employees: [],  // Ajout de l'initialisation du state
-      projects: []
+      employees: [],
+      projects: [],
+      employeeId: null,
+      projectId: null
     };
+  }
+
+  NewStaffing = (employeeId, projectId) => {
+    axios.post('http://localhost:3001/NewStaffing', { employeeId, projectId })
+      .then((response) => {
+        console.log('Réussi');
+        // Mettez à jour l'état si nécessaire
+      })
+      .catch((error) => {
+        console.log('Erreur :', error);
+      });
   }
 
   componentDidMount() {
@@ -27,14 +43,17 @@ class Staffing extends Component {
         console.log('Erreur :', error);
       });
   }
-  
-
-  switchProject = (e) => {
-    console.log(this.state.result);
-  };
 
   render() {
     const { employees, projects } = this.state;
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
 
     return (
       <div className="staffing">
@@ -60,9 +79,12 @@ class Staffing extends Component {
           <div className="circle-arrow" onClick={this.switchProject}>
             <div className="arrow"></div>
           </div>
-          {projects.map((project) => (
-          <BoxStaffing  projectName={project.project_name}/>
-          ))}
+
+          <Slider {...settings}>
+            {projects.map((project) => (
+              <BoxStaffing key={project.id} projectName={project.project_name} />
+            ))}
+          </Slider>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', marginLeft: '30%' }}>
@@ -78,14 +100,17 @@ class Staffing extends Component {
         </div>
 
         <div style={{ marginTop: '2%', marginLeft: "30%" }}>
-          {employees.map((employee) => (
-            <RandomBox
-              key={employee.id}
-              size="150px"
-              width={'73%'}
-              radius={'22px'}
-              data={`${employee.Firstname} ${employee.Surname}`}
-            />
+          {projects.map((project) => (
+            employees.map((employee) => (
+              <RandomBox
+                key={employee.id}
+                size="150px"
+                width={'73%'}
+                radius={'22px'}
+                data={`${employee.Firstname} ${employee.Surname}`}
+                click={() => this.NewStaffing(employee.id, project.project_name)}
+              />
+            ))
           ))}
         </div>
       </div>

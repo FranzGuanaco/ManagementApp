@@ -10,11 +10,10 @@ const RandomBox = (props) => {
                 width: props.width,
                 height: props.size,
                 marginBottom: '14px',
-                id: props.id
             }}
         >
             <p>{props.data}</p>
-            <button style={{ backgroundColor: 'green', color: 'white', padding: '5px 10px' }} onClick={props.click}>
+            <button style={{ backgroundColor: 'green', color: 'white', padding: '5px 10px' }} onClick={props.click} id={props.id}>
                 Bouton
             </button>
         </div>

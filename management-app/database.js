@@ -133,8 +133,8 @@ app.get('/Vacancy', function(req, res) {
 });
 
 app.get('/Staffing', function(req, res) {
-  const query1 = 'SELECT * FROM Employees';
-  const query2 = 'SELECT * FROM Project';
+  const query1 = 'SELECT id, Surname, Firstname FROM Employees';
+  const query2 = 'SELECT id, project_name FROM Project';
 
   connection.query(query1, function(err1, employees, fields1) {
     if (err1) {
@@ -154,6 +154,23 @@ app.get('/Staffing', function(req, res) {
     });
   });
 });
+
+app.post('/NewStaffing', function(req, res) {
+  const { employeeId, projectId } = req.body;
+
+  // Effectuez l'action nécessaire pour joindre les employés et les projets dans votre base de données
+  // Exemple de requête SQL pour insérer les données dans la table 'EmployeeProject'
+  const query = 'INSERT INTO EmployeeProject (employeeId, projectId) VALUES (?, ?)';
+  connection.query(query, [employeeId, projectId], function(err, result) {
+    if (err) {
+      console.error('Erreur lors de l\'insertion dans la table EmployeeProject:', err.stack);
+      return;
+    }
+
+    res.status(200).send({ success: true });
+  });
+});
+
 
 
 
