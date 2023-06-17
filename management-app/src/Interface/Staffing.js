@@ -17,20 +17,21 @@ class Staffing extends Component {
       employees: [],
       projects: [],
       employeeId: null,
-      projectId: null
+      projectId: null,
     };
   }
 
   NewStaffing = (employeeId, projectId) => {
     axios.post('http://localhost:3001/NewStaffing', { employeeId, projectId })
       .then((response) => {
-        console.log('Réussi');
-        // Mettez à jour l'état si nécessaire
+        console.log(`La valeur de employeeId est ${employeeId}`);
+        this.setState({ employeeId: employeeId, projectId: projectId });
       })
       .catch((error) => {
         console.log('Erreur :', error);
       });
   }
+  
 
   componentDidMount() {
     axios.get('http://localhost:3001/Staffing')
@@ -108,7 +109,7 @@ class Staffing extends Component {
                 width={'73%'}
                 radius={'22px'}
                 data={`${employee.Firstname} ${employee.Surname}`}
-                click={() => this.NewStaffing(employee.id, project.project_name)}
+                click={() => this.NewStaffing(employee.id, project.id)}
               />
             ))
           ))}
@@ -118,6 +119,6 @@ class Staffing extends Component {
   }
 }
 
-export default Staffing;
+export default Staffing
 
 
