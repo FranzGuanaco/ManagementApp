@@ -16,21 +16,28 @@ class Staffing extends Component {
     this.state = {
       employees: [],
       projects: [],
-      employeeId: null,
-      projectId: null,
     };
   }
 
   NewStaffing = (employeeId, projectId) => {
+    if (projectId === undefined) {
+      projectId = this.state.projects[0].id;
+    }
     axios.post('http://localhost:3001/NewStaffing', { employeeId, projectId })
       .then((response) => {
-        console.log(`La valeur de employeeId est ${employeeId}`);
+        console.log(`La valeur de employeeId est  ${employeeId} et projectId est ${projectId}`);
         this.setState({ employeeId: employeeId, projectId: projectId });
       })
       .catch((error) => {
         console.log('Erreur :', error);
       });
   }
+
+
+  handleSlideChange = (slideIndex) => {
+    this.setState({ projectId: slideIndex });
+    console.log('Ca marche :', slideIndex);
+  };
   
 
   componentDidMount() {
@@ -80,10 +87,14 @@ class Staffing extends Component {
           <div className="circle-arrow" onClick={this.switchProject}>
             <div className="arrow"></div>
           </div>
-
-          <Slider {...settings}>
-            {projects.map((project) => (
+          
+         
+          <Slider {...settings} afterChange={(slideIndex) => this.handleSlideChange(projects[slideIndex].id)}>
+             
+          {projects.map((project) => (
+            // Box staffing comportant les données de chaque projet
               <BoxStaffing key={project.id} projectName={project.project_name} />
+
             ))}
           </Slider>
         </div>
@@ -101,7 +112,10 @@ class Staffing extends Component {
         </div>
 
         <div style={{ marginTop: '2%', marginLeft: "30%" }}>
-          {projects.map((project) => (
+
+          {
+            // Box employee avec le boutton censé staffé l'employé en question
+            // map pour faire defiler tous les employés
             employees.map((employee) => (
               <RandomBox
                 key={employee.id}
@@ -109,9 +123,9 @@ class Staffing extends Component {
                 width={'73%'}
                 radius={'22px'}
                 data={`${employee.Firstname} ${employee.Surname}`}
-                click={() => this.NewStaffing(employee.id, project.id)}
-              />
-            ))
+                // il faut aussi inclure la data du projet
+                click={() => this.NewStaffing(employee.id, this.state.projectId)}
+              /> 
           ))}
         </div>
       </div>
