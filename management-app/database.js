@@ -35,9 +35,9 @@ connection.query('SELECT * FROM Employees', function(err, results, fields) {
   console.log('Fetched projects from the database:', results);
 });
 
+
 app.post('/auth/login', function(req, res) {
   const { username, password } = req.body;
-
   connection.query(
     "SELECT * FROM Admin WHERE username = ? AND password = ?",
     [username, password],
@@ -56,6 +56,7 @@ app.post('/auth/login', function(req, res) {
   );
 });
 
+
 app.post('/admin', function(req, res) {
   const admin = req.body;
 
@@ -71,6 +72,7 @@ app.post('/admin', function(req, res) {
     });
 });
 
+
 app.get('/employees', function(req, res) {
   connection.query('SELECT position, Surname, Firstname, Mail, Availability, Income FROM Employees', function(err, results, fields) {
     if (err) {
@@ -81,6 +83,7 @@ app.get('/employees', function(req, res) {
   });
 });
 
+
 app.get('/delete', function(req, res) {
   connection.query('DELETE FROM Employees WHERE Position LIKE "%Junior%"', function(err, results, fields) {
     if (err) {
@@ -90,6 +93,7 @@ app.get('/delete', function(req, res) {
     res.status(200).send('suppression réussie.');
   });
 });
+
 
 app.get('/EmployeeDetails', function(req, res) {
   connection.query('SELECT * FROM Employees', function(err, results, fields) {
@@ -112,15 +116,6 @@ app.get('/Project', function(req, res) {
   });
 });
 
-app.get('/Vacancy', function(req, res) {
-  connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
-    if (err) {
-      res.status(500).send({ error: 'Internal Server Error' });
-      return;
-    }
-    res.status(200).send(results);
-  });
-});
 
 app.get('/Vacancy', function(req, res) {
   connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
@@ -131,6 +126,18 @@ app.get('/Vacancy', function(req, res) {
     res.status(200).send(results);
   });
 });
+
+
+app.get('/Vacancy', function(req, res) {
+  connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
+    if (err) {
+      res.status(500).send({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(200).send(results);
+  });
+});
+
 
 app.get('/Staffing', function(req, res) {
   const query1 = 'SELECT id, Surname, Firstname FROM Employees';
@@ -155,6 +162,7 @@ app.get('/Staffing', function(req, res) {
   });
 });
 
+
 app.post('/NewStaffing', function(req, res) {
   const { employeeId, projectId } = req.body;
 
@@ -169,6 +177,32 @@ app.post('/NewStaffing', function(req, res) {
   });
 });
 
+
+app.get('/Report', function(req, res) {
+  const query1 = 'SELECT COUNT(*) AS employeeCount FROM Employees';
+  const query2 = 'SELECT COUNT(*) AS projectCount FROM Project';
+
+  connection.query(query1, function(err, employeeResult) {
+    if (err) {
+      console.error('Erreur lors de la récupération du nombre d\'employés :', err.stack);
+      res.status(500).send({ success: false, error: 'Une erreur s\'est produite lors de la récupération du nombre d\'employés.' });
+      return;
+    }
+
+    connection.query(query2, function(err, projectResult) {
+      if (err) {
+        console.error('Erreur lors de la récupération du nombre de projets :', err.stack);
+        res.status(500).send({ success: false, error: 'Une erreur s\'est produite lors de la récupération du nombre de projets.' });
+        return;
+      }
+
+      const employeeCount = employeeResult[0].employeeCount;
+      const projectCount = projectResult[0].projectCount;
+
+      res.status(200).send({ success: true, employeeCount, projectCount });
+    });
+  });
+});
 
 
 
@@ -191,6 +225,7 @@ app.post('/AddAccount', function(req, res) {
     res.status(200).send(results);
   });
 });
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
