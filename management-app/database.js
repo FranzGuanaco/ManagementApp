@@ -178,6 +178,19 @@ app.post('/NewStaffing', function(req, res) {
 });
 
 
+app.get('/NewProject', function(req, res) {
+  const query = 'SELECT project_name, description, start_date, deadline, budget from Project';
+  connection.query(query, function(err, result) {
+    if (err) {
+      console.error('Erreur lors de la récupération des données du projet:', err.stack);
+      return res.status(500).send({ success: false, message: 'Erreur lors de la récupération des données du projet' });
+    }
+
+    res.status(200).send({ success: true, data: result });
+  });
+});
+
+
 app.get('/Report', function(req, res) {
   const query1 = 'SELECT COUNT(*) AS employeeCount FROM Employees';
   const query2 = 'SELECT COUNT(*) AS projectCount FROM Project';
