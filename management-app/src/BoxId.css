@@ -26,17 +26,6 @@ input[type="password"] {
   margin-top: 15%;
 }
 
-/* Responsive styles */
-@media only screen and (max-width: 768px) {
-  .formBox {
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-  }
-}
 
 @media only screen and (max-width: 380px) {
   .formBox {

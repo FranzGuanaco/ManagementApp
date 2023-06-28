@@ -102,7 +102,7 @@ const handleFormSubmit = (event) => {
             </div>
 
             <div style={{ marginTop: '10px', marginRight: '1000px' }}>
-              <Form size="75px" width="500px" radius="22px"  
+              <Form size="75px" width="100%" radius="22px"  
               text = 'age'
               value={age}
               onChange = {(event) => setAge(event.target.value)}

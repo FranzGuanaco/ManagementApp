@@ -4,12 +4,20 @@ import BoxNews from '../Box/BoxNews'
 import BoxEmployee from '../Box/BoxEmployee'
 import { Link } from "react-router-dom";
 import ParamPic from './ParamPic';
+
 import "../App.css"
 
 export default function Homepage() {
   return (
     
+    
     <div className="home">
+
+<div className='menu-left'>
+        <Link to='/Parameters'>
+        <ParamPic/>
+        </Link>
+        </div>
       
         <div className='menu-right'>
         <AlignMenuShorter
@@ -34,26 +42,21 @@ export default function Homepage() {
         links5 = "/"
         />
 
-        <div className="center">
-            <Link to='/Employee details'>
-            <BoxEmployee top = "5%"/>
 
-            </Link>
-            <Link to='/Employee details'>
-             <BoxNews marginTop = "2%"/>
-             </Link>
-        </div>
+<div style={{left: "500px" }}>
+  <div style={{ padding: "10px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <Link to="/Employee details">
 
-        <div className='menu-left'>
-        <Link to='/Parameters'>
-        <ParamPic/>
-        </Link>
-        </div>
-        </div>
-        </div>
-     
+        <BoxEmployee/>
+   
+    </Link>
+  </div>
+</div>
 
+</div>
+</div>
 
+       
   )
 }
 

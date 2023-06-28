@@ -1,0 +1,23 @@
+.FormStyle {
+    /* Styles de base */
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    outline: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* Styles pour les écrans jusqu'à 768px de large */
+    .FormStyle {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Styles pour les écrans jusqu'à 480px de large */
+    .FormStyle {
+      font-size: 14px;
+    }
+  }
+  

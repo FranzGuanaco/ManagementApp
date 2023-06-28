@@ -180,15 +180,28 @@ app.post('/NewStaffing', function(req, res) {
 
 app.get('/NewProject', function(req, res) {
   const query = 'SELECT project_name, description, start_date, deadline, budget from Project';
-  connection.query(query, function(err, result) {
-    if (err) {
-      console.error('Erreur lors de la récupération des données du projet:', err.stack);
-      return res.status(500).send({ success: false, message: 'Erreur lors de la récupération des données du projet' });
-    }
 
-    res.status(200).send({ success: true, data: result });
+  const promise = new Promise((resolve, reject) => {
+    connection.query(query, function(err, result) {
+      if (err) {
+        console.error('Erreur lors de la récupération des données du projet:', err.stack);
+        reject(err); // Rejeter la Promise avec l'erreur
+      } else {
+        resolve(result); // Résoudre la Promise avec le résultat
+      }
+    });
   });
+
+  promise
+    .then((result) => {
+      res.status(200).send({ success: true, data: result });
+    })
+    .catch((error) => {
+      console.error('Erreur lors de la récupération des données du projet:', error);
+      res.status(500).send({ success: false, message: 'Erreur lors de la récupération des données du projet' });
+    });
 });
+
 
 
 app.get('/Report', function(req, res) {

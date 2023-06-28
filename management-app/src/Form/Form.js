@@ -36,7 +36,6 @@ Form.propTypes = {
 Form.defaultProps = {
     radius: '20px',
     width: '300px',
-    size: '220px',
     text: 'Data',
 };
 
