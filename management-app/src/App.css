@@ -104,9 +104,11 @@ input[type="submit"] {
 .container {
   display: flex;
   flex-direction: column;
-  margin-left: 400px;
+  margin-left: 20%;
   position: relative;
+  border: 1px solid red; /* Ajout de la bordure rouge */
 }
+
 
 .container_track {
   display: flex;
@@ -133,8 +135,17 @@ input[type="submit"] {
 
 .randombox-container {
   display: flex;
-  align-items: center;
  
+  border: 1px solid rgb(0, 34, 255);
+}
+
+.randombox-container > div {
+  flex: 1; /* Permet aux éléments de remplir l'espace disponible */
+  /* Espacement entre les éléments */
+}
+
+.randombox-container > div:last-child {
+  margin-right: 0; /* Supprime l'espacement du dernier élément */
 }
 
 .button-container {

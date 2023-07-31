@@ -10,6 +10,7 @@ const Form = (props) => {
                     margin: '8px 0px',
                     borderRadius: props.radius,
                     width: props.width,
+                    minWidth: props.minWidth, 
                     height: props.size,
                     boxSizing: 'border-box'
                 }} 
@@ -27,6 +28,7 @@ const Form = (props) => {
 Form.propTypes = {
     radius: PropTypes.string,
     width: PropTypes.string,
+    minWidth: PropTypes.string,
     size: PropTypes.string,
     text: PropTypes.string,
     value: PropTypes.string,  // Ajout de la prop value à PropTypes
@@ -36,6 +38,7 @@ Form.propTypes = {
 Form.defaultProps = {
     radius: '20px',
     width: '300px',
+    minWidth: '150px',
     text: 'Data',
 };
 

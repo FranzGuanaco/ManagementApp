@@ -85,15 +85,17 @@ const handleFormSubmit = (event) => {
       <div className="container">
           <>
             <div className="randombox-container">
-              <Form size="75px" width="230px" radius="18px" 
+              <Form size="75px" width="100%" 
+              radius="18px" 
               text = 'firstname'
               value={Firstname}
               onChange={(event) => 
                 setFirstname(event.target.value)}
               />
 
-              <div style={{ marginLeft: '40px' }}>
-                <Form size="75px" width="230px" radius="18px"  
+              <div style={{  marginLeft: '50px', marginRight: '400px' }}>
+                <Form size="75px" width="100%" 
+                radius="18px"  
                 text = 'Surname'
                 value={Surname}
                 onChange = {(event) => setSurname(event.target.value)}
@@ -101,15 +103,15 @@ const handleFormSubmit = (event) => {
               </div>
             </div>
 
-            <div style={{ marginTop: '10px', marginRight: '1000px' }}>
+            <div style={{ marginTop: '10px', marginRight: '400px' }}>
               <Form size="75px" width="100%" radius="22px"  
               text = 'age'
               value={age}
               onChange = {(event) => setAge(event.target.value)}
               />
             </div>
-            <div style={{ marginTop: '10px', marginRight: '1000px' }}>
-              <Form size="75px" width="500px" radius="22px" 
+            <div style={{ marginTop: '10px', marginRight: '400px' }}>
+              <Form size="75px" width="100%" radius="22px" 
               text = 'position'
               value={Position}
               onChange = {(event) => setPosition(event.target.value)}
@@ -118,31 +120,31 @@ const handleFormSubmit = (event) => {
 
             <div className="randombox-container">
               <div style={{ marginTop: '10px' }}>
-                <Form size="75px" width="500px" radius="22px" 
+                <Form size="75px" width="100%" radius="22px" 
                 text = 'diploma'
                 value={Diploma}
                 onChange = {(event) => setDiploma(event.target.value)}
                 />
               </div>
-              <div style={{ marginLeft: '50px', marginTop: '10px' }}>
-                <Form size="75px" width="500px" radius="22px"  
+              <div style={{ marginLeft: '50px', marginTop: '10px', marginRight: '400px' }}>
+                <Form size="75px" width="100%" radius="22px"  
                 text = 'cost'
                 value={Cost}
                 onChange = {(event) => setCost(event.target.value)}/>
               </div>
             </div>
 
-            <div style={{ marginTop: '10px', marginRight: '1000px' }}>
-              <Form size="75px" width="1070px" radius="22px" 
+            <div style={{ marginTop: '10px', marginRight: '400px' }}>
+              <Form size="75px" width="100%" radius="22px" 
               text = 'Mail'
               value={Mail}
               onChange = {(event) => setMail(event.target.value)}/>
             </div>
-            <div style={{ marginTop: '10px', marginRight: '1000px' }}>
-              <Form size="75px" width="1070px" radius="22px" />
+            <div style={{ marginTop: '10px', marginRight: '400px' }}>
+              <Form size="75px" width="100%" radius="22px" />
             </div>
-            <div style={{ marginTop: '10px', marginRight: '1000px' }}>
-              <Form size="75px" width="1070px" radius="22px"  />
+            <div style={{ marginTop: '10px', marginRight: '400px' }}>
+              <Form size="75px" width="100%" radius="22px"  />
             </div>
 
             <div style={{ marginTop: '20px' }}>
@@ -150,7 +152,7 @@ const handleFormSubmit = (event) => {
             </div>
 
             <div className="pic">
-              <div style={{ bottom: '20px', marginLeft: '50%' }}>
+              <div style={{ bottom: '20px', marginLeft: '400px' }}>
                 <Pic />
                 <Form size="30px" width="100px" radius="22px" />
               </div>

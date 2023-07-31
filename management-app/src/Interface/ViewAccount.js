@@ -68,7 +68,7 @@ function ViewAccount() {
         {employees.map((employee) => (
           <React.Fragment key={employee.id}>
             <div className="randombox-container">
-              <RandomBox size="75px" width={'230px'} radius={'18px'} data={employee.Firstname} />
+              <RandomBox size="75px" width={'200px'} radius={'18px'} data={employee.Firstname} />
               <div style={{ marginLeft: '40px' }}>
                 <RandomBox size="75px" width={'230px'} radius={'18px'} data={employee.Firstname} />
               </div>

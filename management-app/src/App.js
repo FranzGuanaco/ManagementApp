@@ -27,9 +27,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<BoxId/>} />
-        <Route path='/Homepage' exact element={<Homepage/>} />
-        <Route path='/Employee' exact element={<Employee/>} />
+      
+        <Route path='/' element={<BoxId/>} />  {/*responsive done */}
+        <Route path='/Homepage' exact element={<Homepage/>} /> {/*responsive done */}
+        <Route path='/Homepage' exact element={<Employee/>} /> {/*responsive done */}
         <Route path='/Employee details' exact element={<ViewAccount/>} />
         <Route path='/EditAccount' exact element={<EditAccount/>} />
         <Route path='/AddAccount' exact element={<AddAccount/>} />
