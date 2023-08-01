@@ -10,7 +10,7 @@ const Pic = (props) => {
         marginLeft: props.marginLeft,
         marginTop: props.marginTop,
         width: props.width,
-        height: props.width,
+        height: props.height,
       }}
     >
       <img src="photo.jpg" alt="Photo" />
@@ -19,7 +19,7 @@ const Pic = (props) => {
 };
 
 Pic.defaultProps = {
-  width: '70px',
+  width: '700px',
   height: '70px',
 };
 

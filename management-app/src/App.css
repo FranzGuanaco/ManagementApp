@@ -166,9 +166,10 @@ input[type="submit"] {
 
 .pic{
   z-index: 9;
-  margin-left: 45%;
-  top: 10%;
+  top: 13%;
   position: absolute;
+  margin-left: 40%;
+  border: 1px solid rgb(220, 12, 151);
 }
 
 .circular-button {
