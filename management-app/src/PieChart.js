@@ -15,16 +15,17 @@ const Pie = () => (
     radius={50}
     label={({ dataEntry }) => dataEntry.title}
     labelStyle={{
-      fontSize: "5px",
+      fontSize: "35px",
       fontFamily: "sans-serif",
       fill: "#FFFFFF",
     }}
     style={{
 
-        height: '300px'
+        height: '140px'
 
     }}
   />
+  
 );
 
 export default Pie;

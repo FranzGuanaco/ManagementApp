@@ -152,7 +152,7 @@ const handleFormSubmit = (event) => {
             </div>
 
             <div className="pic">
-              <div style={{ bottom: '20px', marginLeft: '70%' }}>
+              <div style={{ bottom: '20px', marginLeft: '30%' }}>
               <div style={{ height: '50vh', width: '50vh' }}>
                 <Pic height="60%" width="60%" />
                 

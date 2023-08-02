@@ -67,10 +67,10 @@ const Vacancy = () => {
           justifyContent: "space-around",
           alignItems: "flex-start",
           marginTop: "10px",
-          marginLeft: '20%'
+          marginLeft: '35%'
         }}
       >
-        <div>
+        <div style={{marginTop: "3%", marginLeft: "10%"}}>
           <BarChart
             width={500}
             height={300}
@@ -89,7 +89,7 @@ const Vacancy = () => {
             <Bar dataKey="pv" fill="#8884d8" />
             <Bar dataKey="uv" fill="#82ca9d" />
           </BarChart>
-          <div style={{ marginTop: '40%' }}>
+          <div style={{ marginTop: '20%' }}>
             <Pie />
           </div>
         </div>

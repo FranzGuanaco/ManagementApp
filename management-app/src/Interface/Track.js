@@ -38,35 +38,33 @@ function Track () {
 
 
      
-        <div className="randombox-pie">
+    <div className="randombox-pie">
         <Pie/>
         <Pie/>
         </div>
-      
        
 
         <div className="container_track">
+        <div style={{marginLeft: "25%", marginTop: "5%"}}>
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
+        
         <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
-        </div>
-        <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
-        </div>
-        <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
         </div>
         <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
         </div>
         <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
         </div>
         <div style={{marginTop:'8px'}}>
-        <RandomBox size="95px" width={'1200px'} radius={'22px'} />
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
+        </div>
+        <div style={{marginTop:'8px'}}>
+        <RandomBox size="95px" width={'85%'} radius={'22px'} />
         </div>
         </div>
-
-
+        </div>
         </div>
 
 

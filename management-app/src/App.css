@@ -113,8 +113,6 @@ input[type="submit"] {
 .container_track {
   display: flex;
   flex-direction: column;
-  margin-left: 400px;
-  margin-top: 5%;
   position: relative;
 }
 
@@ -159,8 +157,8 @@ input[type="submit"] {
 .randombox-pie {
   display: flex;
   align-items: center;
-  margin-left: 250px;
- 
+  margin-left: 15%;
+
 }
 
 
