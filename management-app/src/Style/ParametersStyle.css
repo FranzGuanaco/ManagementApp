@@ -14,16 +14,42 @@
     background-color: #f5f5f5;
   }
   /* Style pour les titres */
+  /* Style de base pour les titres et les textes */
+.OptionTitle {
+  font-size: 19px;
+  font-weight: bold;
+  margin-right: 40px;
+}
+
+.OptionText {
+  font-size: 16px;
+}
+
+/* Media Queries pour rendre les styles responsive */
+@media screen and (max-width: 768px) {
+  /* Pour les écrans de largeur maximale de 768px */
   .OptionTitle {
-    font-size: 19px;
-    font-weight: bold;
-    margin-right: 40px;
+    font-size: 16px;
+    margin-right: 20px;
   }
  
-  /* Style pour les textes */
   .OptionText {
-    font-size: 16px;
+    font-size: 14px;
   }
+}
+
+@media screen and (max-width: 480px) {
+  /* Pour les écrans de largeur maximale de 480px */
+  .OptionTitle {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+ 
+  .OptionText {
+    font-size: 12px;
+  }
+}
+
 
   .modal {
 /* Masque la boîte modale par défaut */

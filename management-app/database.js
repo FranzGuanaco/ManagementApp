@@ -46,7 +46,7 @@ app.post('/auth/login', function(req, res) {
         res.status(500).send({ error: 'Internal Server Error' });
         return;
       }
-
+      
       if (results.length > 0) {
         res.status(200).send({ success: 'User authenticated' });
       } else {
@@ -71,6 +71,7 @@ app.post('/admin', function(req, res) {
       res.status(200).send({ success: 'Admin created' });
     });
 });
+
 
 
 app.get('/employees', function(req, res) {
@@ -251,6 +252,7 @@ app.post('/AddAccount', function(req, res) {
     res.status(200).send(results);
   });
 });
+
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

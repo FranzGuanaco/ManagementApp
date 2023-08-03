@@ -46,25 +46,21 @@ class Parameters extends Component {
       }
     
       handleInputChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({ password: event.target.value });
+        this.setState({ username: event.target.value });
       }
 
       handleSubmit = () => {
         const { username, password } = this.state;
       
-        fetch('http://localhost:3001/admin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            username: username,
-            password: password
-          })
+        axios.post('http://localhost:3001/admin', {
+          username: username,
+          password: password
+        }, {
+          
         })
         .then(response => {
-          if (response.ok) {
+          if (response.status === 200) {
             console.log('Admin added');
             this.closeModalAdmin();
           } else {
@@ -74,7 +70,7 @@ class Parameters extends Component {
         .catch(error => console.error(error));
       }
       
-    
+      
       handleSubmit2 = () => {
         const { username2, password2 } = this.state;
         // Faites quelque chose avec les informations de l'utilisateur
@@ -141,9 +137,8 @@ class Parameters extends Component {
 
     <div class="Paramcontainer" onClick={this.DeleteRequest}>
       <div class="OptionTitle">Delete account</div>
-      <div class="OptionText">{this.props.text || Parameters.defaultProps.text}</div>
+      <div class="OptionText">{Parameters.defaultProps.text}</div>
     </div>
-
 
 
 {isModalAdminOpen && (
@@ -168,7 +163,7 @@ class Parameters extends Component {
               <label htmlFor="username">Ancien mot de passe :</label>
               <input type="text" id="username2" className='inputAddAdmin' name="username2" value={username2} onChange={this.handleInputChange} />
               <label htmlFor="password">Nouveau mot de passe :</label>
-              <input type="password" id="password2" className='inputAddAdmin' name="password2" value={password2} onChange={this.handleInputChange} />
+              <input type="password2" id="password2" className='inputAddAdmin' name="password2" value={password2} onChange={this.handleInputChange} />
               <button onClick={this.handleSubmit2}>Valider</button>
             </div>
           </div>
@@ -182,7 +177,7 @@ class Parameters extends Component {
               <label htmlFor="username">Ancien mot de passe :</label>
               <input type="text" id="username2" className='inputAddAdmin' name="username3" value={username3} onChange={this.handleInputChange} />
               <label htmlFor="password">Nouveau mot de passe :</label>
-              <input type="password" id="password2" className='inputAddAdmin' name="password3" value={password3} onChange={this.handleInputChange} />
+              <input type="password3" id="password2" className='inputAddAdmin' name="password3" value={password3} onChange={this.handleInputChange} />
               <button onClick={this.handleSubmit3}>Valider</button>
             </div>
           </div>

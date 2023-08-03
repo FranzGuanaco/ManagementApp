@@ -28,23 +28,23 @@ function App() {
       <BrowserRouter>
       <Routes>
       
-        <Route path='/' element={<BoxId/>} />  {/*responsive done */}
-        <Route path='/Homepage' exact element={<Homepage/>} /> {/*responsive done */}
-        <Route path='/Homepage' exact element={<Employee/>} /> {/*responsive done */}
-        <Route path='/Employee details' exact element={<ViewAccount/>} /> {/*responsive done */}
-        <Route path='/EditAccount' exact element={<EditAccount/>} /> {/*responsive done */}
-        <Route path='/AddAccount' exact element={<AddAccount/>} /> {/*responsive done */}
-        <Route path='/Track' exact element={<Track/>} /> {/*priorite */}
-        <Route path='/NewProject' exact element={<NewProject/>} />
-        <Route path='/EditProject' exact element={<EditProject/>} />
-        <Route path='/Mail' exact element={<Mail/>} /> {/*priorite */}
-        <Route path='/Staffing' exact element={<Staffing/>} /> {/*priorite */}
-        <Route path='/Parameters' exact element={<Parameters/>} /> {/*priorite */}
-        <Route path='/MailSent' exact element={<MailSent/>} />
+        <Route path='/' element={<BoxId/>} /> {/* back */} 
+        <Route path='/Homepage' exact element={<Homepage/>} /> {/*back */} 
+        <Route path='/Homepage' exact element={<Employee/>} /> {/*back */} 
+        <Route path='/Employee details' exact element={<ViewAccount/>} /> {/*back */} 
+        <Route path='/EditAccount' exact element={<EditAccount/>} />{/*back */} 
+        <Route path='/AddAccount' exact element={<AddAccount/>} /> {/*back */} 
+        <Route path='/Track' exact element={<Track/>} /> {/*back */} 
+        <Route path='/NewProject' exact element={<NewProject/>} /> {/*back */} 
+        <Route path='/EditProject' exact element={<EditProject/>} /> {/*back */} 
+        <Route path='/Mail' exact element={<Mail/>} /> {/*priorite */} {/*back */} 
+        <Route path='/Staffing' exact element={<Staffing/>} /> {/*priorite */} {/*back */} 
+        <Route path='/Parameters' exact element={<Parameters/>} /> {/*priorite */} {/*back */} 
+        <Route path='/MailSent' exact element={<MailSent/>} /> 
         <Route path='/Projects' exact element={<Projects/>} />
         <Route path='/Report' exact element={<Report/>} />
-        <Route path='/Vacancy' exact element={<Vacancy/>} />
-        <Route path='/Calendar' exact element={<Agenda/>} /> {/*priorite */}
+        <Route path='/Vacancy' exact element={<Vacancy/>} /> {/*back */} 
+        <Route path='/Calendar' exact element={<Agenda/>} /> 
       </Routes>
       </BrowserRouter>
       </div>
