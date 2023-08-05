@@ -1,6 +1,8 @@
 const mysql = require('mysql2');
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -27,6 +29,7 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
+
 connection.query('SELECT * FROM Employees', function(err, results, fields) {
   if (err) {
     console.error('Erreur: ' + err.stack);
@@ -48,6 +51,8 @@ app.post('/auth/login', function(req, res) {
       }
       
       if (results.length > 0) {
+        const token = jwt.sign({ username: req.body.username }, 'secret_key');
+        res.json({ token }); // Renvoie le token dans la réponse
         res.status(200).send({ success: 'User authenticated' });
       } else {
         res.status(401).send({ error: 'Invalid credentials' });
@@ -55,6 +60,7 @@ app.post('/auth/login', function(req, res) {
     }
   );
 });
+
 
 
 app.post('/admin', function(req, res) {
@@ -85,6 +91,8 @@ app.get('/employees', function(req, res) {
 });
 
 
+
+// suppression de l'utilisateur connecté dans l'interface parameters
 app.get('/delete', function(req, res) {
   connection.query('DELETE FROM Employees WHERE Position LIKE "%Junior%"', function(err, results, fields) {
     if (err) {
@@ -94,6 +102,7 @@ app.get('/delete', function(req, res) {
     res.status(200).send('suppression réussie.');
   });
 });
+
 
 
 app.get('/EmployeeDetails', function(req, res) {
@@ -107,6 +116,7 @@ app.get('/EmployeeDetails', function(req, res) {
 });
 
 
+
 app.get('/Project', function(req, res) {
   connection.query('SELECT * from Project', function(err, results, fields) {
     if (err) {
@@ -118,6 +128,7 @@ app.get('/Project', function(req, res) {
 });
 
 
+
 app.get('/Vacancy', function(req, res) {
   connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
     if (err) {
@@ -129,6 +140,7 @@ app.get('/Vacancy', function(req, res) {
 });
 
 
+
 app.get('/Vacancy', function(req, res) {
   connection.query('SELECT Firstname, Surname from Employees', function(err, results, fields){
     if (err) {
@@ -138,6 +150,7 @@ app.get('/Vacancy', function(req, res) {
     res.status(200).send(results);
   });
 });
+
 
 
 app.get('/Staffing', function(req, res) {
@@ -164,6 +177,7 @@ app.get('/Staffing', function(req, res) {
 });
 
 
+
 app.post('/NewStaffing', function(req, res) {
   const { employeeId, projectId } = req.body;
 
@@ -177,6 +191,7 @@ app.post('/NewStaffing', function(req, res) {
     res.status(200).send({ success: true });
   });
 });
+
 
 
 app.get('/NewProject', function(req, res) {

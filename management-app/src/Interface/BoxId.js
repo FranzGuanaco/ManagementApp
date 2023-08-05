@@ -9,13 +9,13 @@ class BoxId extends React.Component {
 
     this.state = {
       userName: "",
+      authToken: null, // Nouvelle propriété pour stocker le token
     };
   }
 
   handleInputChange = (event) => {
     
     const value = event.target.value;
-
     this.setState({
       userName: value
     });
@@ -45,8 +45,11 @@ class BoxId extends React.Component {
 
   
       if (response.ok) {
-        console.log('User authenticated');
-        this.handleLogin();
+        const data = await response.json();
+        const authToken = data.token; // Supposons que le token est retourné par le serveur
+        this.setState({ authToken }); // Stocker le token dans l'état
+        console.log(`User authenticated ${authToken}`);
+       // this.handleLogin();
       } else {
         console.log('Invalid credentials');
       }
