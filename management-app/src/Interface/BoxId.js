@@ -2,54 +2,58 @@ import React from "react";
 import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import "../BoxId.css"
+import Homepage from "./Homepage";
 
 class BoxId extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userName: "",
+      userName: "re",
       authToken: null, // Nouvelle propriété pour stocker le token
     };
   }
 
   handleInputChange = (event) => {
-    
     const value = event.target.value;
     this.setState({
       userName: value
     });
   }
 
-  handleLogin = () => {
-    window.location.href = "/Homepage";
-  }
-
   handleSubmit = async (event) => {
     event.preventDefault();
-  
     const { userName } = this.state;
-  
+
     // Récupérer le mot de passe du formulaire
     const password = event.target.password.value;
-  
+
     // Envoyer les informations de connexion au serveur
     try {
       const response = await fetch('http://localhost:3001/auth/login', {
-      method: 'POST',
-      headers: {
-      'Content-Type': 'application/json',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      body: JSON.stringify({ username: userName, password }),
+        body: JSON.stringify({ username: userName, password }),
       });
 
-  
       if (response.ok) {
-        const data = await response.json();
-        const authToken = data.token; // Supposons que le token est retourné par le serveur
-        this.setState({ authToken }); // Stocker le token dans l'état
-        console.log(`User authenticated ${authToken}`);
-       // this.handleLogin();
+        try {
+          const data = await response.json();
+          const authToken = data.token; // Supposons que le token est retourné par le serveur
+          const userName = 'Pierre';
+          
+          this.setState({ userName }, () => {
+            console.log("État mis à jour avec le nom d'utilisateur :", this.state.userName);
+            
+            // Construire l'URL avec le nom d'utilisateur et rediriger
+            const redirectUrl = `/Homepage?username=${encodeURIComponent(this.state.userName)}`;
+            window.location.href = redirectUrl;
+          });
+        } catch (error) {
+          console.log('Error parsing response:', error);
+        }
       } else {
         console.log('Invalid credentials');
       }
@@ -57,14 +61,15 @@ class BoxId extends React.Component {
       console.log('Error:', error);
     }
   }
-  
 
   render() {
-   
-    const { userName } = this.state.userName;
+    const { userName } = this.state;
 
     return (
       <div className="Id">
+     
+        <h2>{userName}</h2>
+     
         <form className="formBox" onSubmit={this.handleSubmit}>
           <label htmlFor="username">{this.props.title} :</label>
           <input type="text" id="username" name="userName" value={userName} placeholder="" onChange={this.handleInputChange} />
@@ -72,7 +77,6 @@ class BoxId extends React.Component {
           <input type="password" id="password" name="password" />
           <input type="submit" value="Se connecter"/>
         </form>
-
       </div>
     );
   }
@@ -84,6 +88,7 @@ BoxId.defaultProps = {
 }
 
 export default BoxId;
+
 
 
 

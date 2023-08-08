@@ -53,7 +53,7 @@ app.post('/auth/login', function(req, res) {
       if (results.length > 0) {
         const token = jwt.sign({ username: req.body.username }, 'secret_key');
         res.json({ token }); // Renvoie le token dans la réponse
-        res.status(200).send({ success: 'User authenticated' });
+      
       } else {
         res.status(401).send({ error: 'Invalid credentials' });
       }

@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import BoxEmployee from '../Box/BoxEmployee';
 import AlignMenuShorter from '../Menu/AlignMenuShorter';
 import BoxNews from '../Box/BoxNews'
-import BoxEmployee from '../Box/BoxEmployee'
 import { Link } from "react-router-dom";
 import ParamPic from './ParamPic';
 
-import "../App.css"
-
 export default function Homepage() {
-  return (
-    
-    
-    <div className="home">
+  const [username, setUsername] = useState('');
 
-<div className='menu-left'>
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const usernameParam = queryParams.get('username');
+    setUsername(usernameParam);
+  }, [location]);
+
+  return (
+    <div className="home">
+      <div className='menu-left'>
         <Link to='/Parameters'>
         <ParamPic/>
         </Link>
         </div>
-      
+
         <div className='menu-right'>
         <AlignMenuShorter
         bottom= "40px"
@@ -42,21 +48,18 @@ export default function Homepage() {
         links5 = "/"
         />
 
-
-<div style={{left: "500px" }}>
-  <div style={{ padding: "10px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-    <Link to="/Employee details">
-
-        <BoxEmployee/>
-   
-    </Link>
-  </div>
-</div>
-
-</div>
-</div>
-
-       
-  )
+      <div style={{ left: "500px" }}>
+        <div style={{ padding: "10px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          
+          <Link to="/Employee details">
+          <BoxEmployee/>
+          </Link>
+        </div>
+      </div>
+    </div>
+    </div>
+  );
 }
+
+
 

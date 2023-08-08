@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import jwt_decode from 'jwt-decode'; // Assurez-vous d'importer la bibliothèque jwt-decode
 import BoxId from './Interface/BoxId';
 import Homepage from './Interface/Homepage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Employee from './Interface/Employee';
 import ViewAccount from './Interface/ViewAccount';
 import EditAccount from './Interface/EditAccount';
@@ -19,40 +19,102 @@ import Vacancy from './Interface/Vacancy';
 import Calendar from './Interface/Calendar';
 import Agenda from './Interface/Agenda';
 import AddAccount from './Interface/AddAccount';
+import ErrorBoundary from './ErrorBoundary';
 
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authToken: null,
+      username: '11',
+    };
+  }
 
-  return(
+  render() {
 
-    <div className="App">
-      <BrowserRouter>
-      <Routes>
-      
-        <Route path='/' element={<BoxId/>} /> {/* back */} 
-        <Route path='/Homepage' exact element={<Homepage/>} /> {/*back */} 
-        <Route path='/Homepage' exact element={<Employee/>} /> {/*back */} 
-        <Route path='/Employee details' exact element={<ViewAccount/>} /> {/*back */} 
-        <Route path='/EditAccount' exact element={<EditAccount/>} />{/*back */} 
-        <Route path='/AddAccount' exact element={<AddAccount/>} /> {/*back */} 
-        <Route path='/Track' exact element={<Track/>} /> {/*back */} 
-        <Route path='/NewProject' exact element={<NewProject/>} /> {/*back */} 
-        <Route path='/EditProject' exact element={<EditProject/>} /> {/*back */} 
-        <Route path='/Mail' exact element={<Mail/>} /> {/*priorite */} {/*back */} 
-        <Route path='/Staffing' exact element={<Staffing/>} /> {/*priorite */} {/*back */} 
-        <Route path='/Parameters' exact element={<Parameters/>} /> {/*priorite */} {/*back */} 
-        <Route path='/MailSent' exact element={<MailSent/>} /> 
-        <Route path='/Projects' exact element={<Projects/>} />
-        <Route path='/Report' exact element={<Report/>} />
-        <Route path='/Vacancy' exact element={<Vacancy/>} /> {/*back */} 
-        <Route path='/Calendar' exact element={<Agenda/>} /> 
-      </Routes>
-      </BrowserRouter>
+    return (
+      <div className="App">
+        <BrowserRouter>
+        <ErrorBoundary>
+          <Routes>
+            <Route
+              path="/"
+              element={<BoxId/>}
+            />
+           <Route
+              path="/Homepage"
+              exact
+              element={<Homepage dataFromA={this.state.username}/>}
+            />
+
+            <Route
+              path="/Employee details"
+              exact
+              element={<ViewAccount />}
+            />
+            <Route
+              path="/EditAccount"
+              exact
+              element={<EditAccount />}
+            />
+            <Route
+              path="/AddAccount"
+              exact
+              element={<AddAccount />}
+            />
+            <Route path="/Track" exact element={<Track />} />
+            <Route
+              path="/NewProject"
+              exact
+              element={<NewProject />}
+            />
+            <Route
+              path="/EditProject"
+              exact
+              element={<EditProject />}
+            />
+            <Route path="/Mail" exact element={<Mail />} />
+            <Route
+              path="/Staffing"
+              exact
+              element={<Staffing />}
+            />
+            <Route
+              path="/Parameters"
+              exact
+              element={<Parameters />}
+            />
+            <Route
+              path="/MailSent"
+              exact
+              element={<MailSent />}
+            />
+            <Route
+              path="/Projects"
+              exact
+              element={<Projects />}
+            />
+            <Route
+              path="/Report"
+              exact
+              element={<Report />}
+            />
+            <Route
+              path="/Vacancy"
+              exact
+              element={<Vacancy />}
+            />
+            <Route
+              path="/Calendar"
+              exact
+              element={<Agenda />}
+            />
+          </Routes>
+          </ErrorBoundary>
+        </BrowserRouter>
       </div>
-  );
-  
+    );
+  }
 }
-
-
-//ReactDOM.render(<App />, document.getElementById('root'));
 
 export default App;
