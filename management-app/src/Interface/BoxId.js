@@ -3,13 +3,14 @@ import { render } from "react-dom";
 import { Link } from "react-router-dom";
 import "../BoxId.css"
 import Homepage from "./Homepage";
+import jwtDecode from "jwt-decode";
 
 class BoxId extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userName: "re",
+      userName: "",
       authToken: null, // Nouvelle propriété pour stocker le token
     };
   }
@@ -41,14 +42,15 @@ class BoxId extends React.Component {
       if (response.ok) {
         try {
           const data = await response.json();
-          const authToken = data.token; // Supposons que le token est retourné par le serveur
-          const userName = 'Pierre';
           
-          this.setState({ userName }, () => {
+          const authToken = data.token; // Supposons que le token est retourné par le serveur
+          
+          this.setState({ userName}, () => {
             console.log("État mis à jour avec le nom d'utilisateur :", this.state.userName);
             
+            const decodeToken = jwtDecode(authToken)
             // Construire l'URL avec le nom d'utilisateur et rediriger
-            const redirectUrl = `/Homepage?username=${encodeURIComponent(this.state.userName)}`;
+            const redirectUrl = `/Homepage?username=${encodeURIComponent({decodeToken})}`;
             window.location.href = redirectUrl;
           });
         } catch (error) {

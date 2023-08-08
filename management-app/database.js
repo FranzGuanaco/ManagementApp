@@ -106,7 +106,8 @@ app.get('/delete', function(req, res) {
 
 
 app.get('/EmployeeDetails', function(req, res) {
-  connection.query('SELECT * FROM Employees', function(err, results, fields) {
+  connection.query('SELECT * FROM Employees where Surname = ?', 
+  function(err, results, fields) {
     if (err) {
       res.status(500).send({ error: 'Internal Server Error' });
       return;

@@ -6,10 +6,11 @@ import BoxNews from '../Box/BoxNews'
 import { Link } from "react-router-dom";
 import ParamPic from './ParamPic';
 
-export default function Homepage() {
+export default function Homepage(props) {
   const [username, setUsername] = useState('');
 
   const location = useLocation();
+
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -52,7 +53,7 @@ export default function Homepage() {
         <div style={{ padding: "10px", display: "flex", justifyContent: "center", alignItems: "center" }}>
           
           <Link to="/Employee details">
-          <BoxEmployee/>
+          <h2> {props.data} </h2>
           </Link>
         </div>
       </div>

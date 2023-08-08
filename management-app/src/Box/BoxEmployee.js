@@ -4,10 +4,12 @@ import Pic from "../Picture/Pic";
 import EditButton from "../Button/EditButton";
 import TextDataEmployee from "./TextDataEmployee";
 import axios from "axios";
+import Homepage from "../Interface/Homepage";
 
 function BoxEmployee(props) {
   const [employees, setEmployees] = useState([]);
   const [boxWidth, setBoxWidth] = useState(300); // Largeur de la boîte par défaut
+
 
   useEffect(() => {
     axios
@@ -42,6 +44,7 @@ function BoxEmployee(props) {
 
   return (
     <div>
+      
       {employees.map((employee) => (
         <div
           key={employee.id}
@@ -56,6 +59,8 @@ function BoxEmployee(props) {
             width: `${boxWidth}px`, // Utiliser la valeur de la largeur de la boîte mise à jour
           }}
         >
+          <Homepage data={props.data}/>
+
           <div style={{ position: "absolute", top: "15%", left: "4%" }}>
             <Pic />
           </div>
@@ -87,6 +92,10 @@ function BoxEmployee(props) {
     </div>
   );
 }
+
+BoxEmployee.defaultProps = {
+  data: "Default Value", // Valeur par défaut pour la prop data
+};
 
 export default BoxEmployee;
 
