@@ -44,7 +44,7 @@ class App extends Component {
            <Route
               path="/Homepage"
               exact
-              element={<Homepage dataFromA={this.state.username}/>}
+              element={<Homepage/>}
             />
 
             <Route

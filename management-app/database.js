@@ -30,9 +30,9 @@ app.get('/', function(req, res) {
 });
 
 
-connection.query('SELECT * FROM Employees', function(err, results, fields) {
+connection.query('SELECT position, id, Surname, Firstname, Mail, Availability, Income FROM Employees', function(err, results, fields) {
   if (err) {
-    console.error('Erreur: ' + err.stack);
+    console.error({ error: 'Internal Server Error' });
     return;
   }
   console.log('Fetched projects from the database:', results);
@@ -81,7 +81,7 @@ app.post('/admin', function(req, res) {
 
 
 app.get('/employees', function(req, res) {
-  connection.query('SELECT position, Surname, Firstname, Mail, Availability, Income FROM Employees', function(err, results, fields) {
+  connection.query('SELECT position, id, Surname, Firstname, Mail, Availability, Income FROM Employees', function(err, results, fields) {
     if (err) {
       res.status(500).send({ error: 'Internal Server Error' });
       return;
@@ -106,7 +106,7 @@ app.get('/delete', function(req, res) {
 
 
 app.get('/EmployeeDetails', function(req, res) {
-  connection.query('SELECT * FROM Employees where Surname = ?', 
+  connection.query('SELECT * FROM Employees', 
   function(err, results, fields) {
     if (err) {
       res.status(500).send({ error: 'Internal Server Error' });
